@@ -24,13 +24,21 @@
                                                       repeats:YES];
     
     countDown = 3;
+    rundomViewInt = arc4random_uniform(2);
+    
+    NSLog(@"ぬっきーは%d才",rundomViewInt);
     
     downLabel.text =[NSString stringWithFormat:@"%d",countDown];
-    img = [UIImage imageNamed:@"main_bidama.png"];
-    mainBidama = [[UIImageView alloc] initWithImage:img];
-    mainBidama.frame = [[UIScreen mainScreen]  bounds];
-    CGRect rect = CGRectMake(320,200, 30,  30);
-    mainBidama.frame = rect;
+    NSString *imgName = [NSString stringWithFormat:@"pico%d.png",rundomViewInt];
+    img = [UIImage imageNamed:imgName];
+    mainview = [[UIImageView alloc] initWithImage:img];
+    mainview.frame = CGRectMake(320,200, 100,  100);//[[UIScreen mainScreen]  bounds];
+    
+//    CGRect rect = CGRectMake(320,200, 45,  45);
+    mainview.center = CGPointMake(320, 200);
+    
+    mainview.contentMode = UIViewContentModeScaleAspectFit;
+    
     
     //textfieldの情報
     tf = [[UITextField alloc]initWithFrame:CGRectMake(112, 236, 150, 40)];
@@ -49,10 +57,6 @@
     [decideButton setTitle:@"決定" forState:UIControlStateNormal];
     [decideButton addTarget:self action:@selector(decide:)
            forControlEvents:UIControlEventTouchUpInside];
-    
-    
-    
-    
 }
 - (void)countdwontime:(NSTimer *)_timer {
     
@@ -60,16 +64,18 @@
     downLabel .text = [NSString stringWithFormat:@"%d",countDown];
     
     if (countDown ==0){
+    
+        
         downLabel.hidden = YES;
         
         
-        [self.view addSubview:mainBidama];
+        [self.view addSubview:mainview];
         [UIView animateWithDuration:1.0f // アニメーション速度2.5秒
                               delay:0.0f // 1秒後にアニメーション
                             options:UIViewAnimationOptionCurveEaseInOut
                          animations:^{
                              CGAffineTransform translate = CGAffineTransformMakeTranslation(-400, 0);
-                             [mainBidama setTransform:translate];
+                             [mainview setTransform:translate];
                              // アニメーションをする処理
                          } completion:^(BOOL finished) {
                              // アニメーションが終わった後実行する処理
@@ -91,9 +97,14 @@
 }
 -(void)mouitido:(UIButton *)button{
     //    mainBidama.hidden ;
-    CGRect rect = CGRectMake(320,200, 30,  30);
-    mainBidama.frame = rect;
-    [self.view addSubview:mainBidama];
+//    CGRect rect = CGRectMake(320,200, 30,  30);
+//    mainview.frame = rect;
+    mainview.frame = [[UIScreen mainScreen]  bounds];
+    mainview.center = CGPointMake(320, 200);
+    
+    mainview.contentMode = UIViewContentModeScaleAspectFit;
+
+    [self.view addSubview:mainview];
     onemore.hidden = YES;
     tf.alpha = 0;
     decideButton.alpha = 0;
@@ -103,7 +114,7 @@
                         options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
                          CGAffineTransform translate = CGAffineTransformMakeTranslation(-800, 0);
-                         [mainBidama setTransform:translate];
+                         [mainview setTransform:translate];
                          // アニメーションをする処理
                      } completion:^(BOOL finished) {
                          

@@ -14,7 +14,8 @@
 		B689EC441A611495000A6E11 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B689EC431A611495000A6E11 /* Images.xcassets */; };
 		B689EC471A611495000A6E11 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B689EC451A611495000A6E11 /* LaunchScreen.xib */; };
 		B689EC531A611495000A6E11 /* new_taikis_appTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B689EC521A611495000A6E11 /* new_taikis_appTests.m */; };
-		B689EC5D1A6114ED000A6E11 /* main_bidama.png in Resources */ = {isa = PBXBuildFile; fileRef = B689EC5C1A6114ED000A6E11 /* main_bidama.png */; };
+		B689EC5D1A6114ED000A6E11 /* pico1.png in Resources */ = {isa = PBXBuildFile; fileRef = B689EC5C1A6114ED000A6E11 /* pico1.png */; };
+		B6DE60D41A6145A100960D96 /* pico0.png in Resources */ = {isa = PBXBuildFile; fileRef = B6DE60D31A6145A100960D96 /* pico0.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +42,8 @@
 		B689EC4C1A611495000A6E11 /* new taikis appTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "new taikis appTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B689EC511A611495000A6E11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B689EC521A611495000A6E11 /* new_taikis_appTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = new_taikis_appTests.m; sourceTree = "<group>"; };
-		B689EC5C1A6114ED000A6E11 /* main_bidama.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = main_bidama.png; path = ../../LITSchool/d/d/main_bidama.png; sourceTree = "<group>"; };
+		B689EC5C1A6114ED000A6E11 /* pico1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pico1.png; path = ../../LITSchool/d/d/pico1.png; sourceTree = "<group>"; };
+		B6DE60D31A6145A100960D96 /* pico0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pico0.png; path = ../../pico0.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,7 +85,8 @@
 		B689EC351A611495000A6E11 /* new taikis app */ = {
 			isa = PBXGroup;
 			children = (
-				B689EC5C1A6114ED000A6E11 /* main_bidama.png */,
+				B689EC5C1A6114ED000A6E11 /* pico1.png */,
+				B6DE60D31A6145A100960D96 /* pico0.png */,
 				B689EC3A1A611495000A6E11 /* AppDelegate.h */,
 				B689EC3B1A611495000A6E11 /* AppDelegate.m */,
 				B689EC3D1A611495000A6E11 /* ViewController.h */,
@@ -202,9 +205,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B689EC5D1A6114ED000A6E11 /* main_bidama.png in Resources */,
+				B689EC5D1A6114ED000A6E11 /* pico1.png in Resources */,
 				B689EC421A611495000A6E11 /* Main.storyboard in Resources */,
 				B689EC471A611495000A6E11 /* LaunchScreen.xib in Resources */,
+				B6DE60D41A6145A100960D96 /* pico0.png in Resources */,
 				B689EC441A611495000A6E11 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -416,6 +420,7 @@
 				B689EC581A611495000A6E11 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B689EC591A611495000A6E11 /* Build configuration list for PBXNativeTarget "new taikis appTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +429,7 @@
 				B689EC5B1A611495000A6E11 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

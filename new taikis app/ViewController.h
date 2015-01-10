@@ -15,12 +15,12 @@
     NSTimer * countDownTimer;
     
     UIImage *img;
-    UIImageView *mainBidama;
+    UIImageView *mainview;
     UIButton *onemore;
     
     UITextField *tf;//答えを入力する。
     
-    
+    int rundomViewInt ;
     UIButton*decideButton;//入力した答えで決定する。
     
     
