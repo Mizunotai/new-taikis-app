@@ -32,15 +32,12 @@
     NSString *imgName = [NSString stringWithFormat:@"pico%d.png",rundomViewInt];
     img = [UIImage imageNamed:imgName];
     mainview = [[UIImageView alloc] initWithImage:img];
-    mainview.frame = CGRectMake(320,200, 100,  100);//[[UIScreen mainScreen]  bounds];
-    
-//    CGRect rect = CGRectMake(320,200, 45,  45);
-    mainview.center = CGPointMake(320, 200);
-    
+    mainview.frame = CGRectMake(350,200, 100,  100);//[[UIScreen mainScreen]  bounds];
     mainview.contentMode = UIViewContentModeScaleAspectFit;
+    name[0]=@"鳥";
     
     
-    //textfieldの情報
+    //正解を入力するtextfieldの生成
     tf = [[UITextField alloc]initWithFrame:CGRectMake(112, 236, 150, 40)];
     tf.textColor =[UIColor blackColor];
     tf.backgroundColor = [UIColor whiteColor];
@@ -50,7 +47,7 @@
     tf.returnKeyType = UIReturnKeyDone;
     tf.clearButtonMode = UITextFieldViewModeAlways;
     tf.delegate = self ;
-    
+    //入力した内容で決定するボタン生成
     decideButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     decideButton = [[UIButton alloc]initWithFrame:CGRectMake(112, 400, 150, 40)];
     decideButton.backgroundColor = [UIColor yellowColor];
@@ -66,7 +63,7 @@
     if (countDown ==0){
     
         
-        downLabel.hidden = YES;
+    downLabel.hidden = YES;
         
         
         [self.view addSubview:mainview];
@@ -74,7 +71,7 @@
                               delay:0.0f // 1秒後にアニメーション
                             options:UIViewAnimationOptionCurveEaseInOut
                          animations:^{
-                             CGAffineTransform translate = CGAffineTransformMakeTranslation(-400, 0);
+                             CGAffineTransform translate = CGAffineTransformMakeTranslation(-445, 0);
                              [mainview setTransform:translate];
                              // アニメーションをする処理
                          } completion:^(BOOL finished) {
@@ -99,26 +96,24 @@
     //    mainBidama.hidden ;
 //    CGRect rect = CGRectMake(320,200, 30,  30);
 //    mainview.frame = rect;
-    mainview.frame = [[UIScreen mainScreen]  bounds];
-    mainview.center = CGPointMake(320, 200);
-    
+    mainview.frame = CGRectMake(350,200, 100,  100);
     mainview.contentMode = UIViewContentModeScaleAspectFit;
 
     [self.view addSubview:mainview];
     onemore.hidden = YES;
-    tf.alpha = 0;
+    [tf removeFromSuperview];
     decideButton.alpha = 0;
     
     [UIView animateWithDuration:1.0f // アニメーション速度2.5秒
                           delay:0.0f // 1秒後にアニメーション
                         options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
-                         CGAffineTransform translate = CGAffineTransformMakeTranslation(-800, 0);
+                         CGAffineTransform translate = CGAffineTransformMakeTranslation(-890, 0);
                          [mainview setTransform:translate];
                          // アニメーションをする処理
                      } completion:^(BOOL finished) {
                          
-                         tf.alpha = 1;
+                         [self.view addSubview:tf];
                          [tf becomeFirstResponder];
                          decideButton.alpha = 1 ;
                          
@@ -133,15 +128,15 @@
     
     return YES;
 }
-/*画面のどこかをタッチしたらキーボードを閉じる*/
-//- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-//{
-//    [self.view.subviews enumerateObjectsUsingBlock:^(UIView* obj, NSUInteger idx, BOOL *stop) {
-//        if ([obj isKindOfClass:[UITextField class]]) {
-//            [obj resignFirstResponder];
-//        }
-//    }];
-//}
+//画面のどこかをタッチしたらキーボードを閉じる
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self.view.subviews enumerateObjectsUsingBlock:^(UIView* obj, NSUInteger idx, BOOL *stop) {
+        if ([obj isKindOfClass:[UITextField class]]) {
+            [obj resignFirstResponder];
+        }
+    }];
+}
 
 -(void)decide:(UIButton *)button {
     

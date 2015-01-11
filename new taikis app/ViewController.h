@@ -23,7 +23,7 @@
     int rundomViewInt ;
     UIButton*decideButton;//入力した答えで決定する。
     
-    
+    NSString *name[2];
 }
 
 
