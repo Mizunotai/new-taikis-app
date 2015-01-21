@@ -29,12 +29,17 @@
     NSLog(@"ぬっきーは%d才",rundomViewInt);
     
     downLabel.text =[NSString stringWithFormat:@"%d",countDown];
-    NSString *imgName = [NSString stringWithFormat:@"pico%d.png",rundomViewInt];
+    imgName = [NSString stringWithFormat:@"pico%d.png",rundomViewInt];
     img = [UIImage imageNamed:imgName];
     mainview = [[UIImageView alloc] initWithImage:img];
     mainview.frame = CGRectMake(350,200, 100,  100);//[[UIScreen mainScreen]  bounds];
     mainview.contentMode = UIViewContentModeScaleAspectFit;
-    name[0]=@"鳥";
+   
+    if (rundomViewInt == 0) {
+        name =@"鳥";
+    }else if (rundomViewInt == 1){
+        name = @"飛行機";
+    }
     
     
     //正解を入力するtextfieldの生成
