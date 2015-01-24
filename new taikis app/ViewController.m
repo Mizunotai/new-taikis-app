@@ -36,7 +36,9 @@
     mainview.contentMode = UIViewContentModeScaleAspectFit;
    
     if (rundomViewInt == 0) {
-        name =@"鳥";
+        name =@"鳥,とり";
+       
+       
     }else if (rundomViewInt == 1){
         name = @"飛行機";
     }
@@ -52,14 +54,7 @@
     tf.returnKeyType = UIReturnKeyDone;
     tf.clearButtonMode = UITextFieldViewModeAlways;
     tf.delegate = self ;
-    //入力した内容で決定するボタン生成
-    decideButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    decideButton = [[UIButton alloc]initWithFrame:CGRectMake(112, 400, 150, 40)];
-    decideButton.backgroundColor = [UIColor yellowColor];
-    [decideButton setTitle:@"決定" forState:UIControlStateNormal];
-    [decideButton addTarget:self action:@selector(decide:)
-           forControlEvents:UIControlEventTouchUpInside];
-}
+   }
 - (void)countdwontime:(NSTimer *)_timer {
     
     countDown -= 1;
@@ -92,8 +87,7 @@
                              
                              [self.view addSubview:tf];
                              [tf becomeFirstResponder];
-                             [self.view addSubview:decideButton];
-                         }];
+                                                      }];
         
     }
 }
@@ -107,7 +101,7 @@
     [self.view addSubview:mainview];
     onemore.hidden = YES;
     [tf removeFromSuperview];
-    decideButton.alpha = 0;
+    
     
     [UIView animateWithDuration:1.0f // アニメーション速度2.5秒
                           delay:0.0f // 1秒後にアニメーション
@@ -120,7 +114,7 @@
                          
                          [self.view addSubview:tf];
                          [tf becomeFirstResponder];
-                         decideButton.alpha = 1 ;
+                         
                          
                      }];
     
@@ -133,6 +127,15 @@
     
     return YES;
 }
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    if ([textField.text isEqualToString:name]) {
+        NSLog(@"一致");
+    }
+   
+}
+
 //画面のどこかをタッチしたらキーボードを閉じる
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
@@ -143,9 +146,6 @@
     }];
 }
 
--(void)decide:(UIButton *)button {
-    
-}
 
 
 
