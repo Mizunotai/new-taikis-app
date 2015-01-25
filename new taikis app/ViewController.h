@@ -22,7 +22,7 @@
     
     int rundomViewInt ;
    
-    
+    UILabel *seikaiLabel;
     NSString *imgName;
     NSString *name ;
 }

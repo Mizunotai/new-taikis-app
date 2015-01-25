@@ -36,11 +36,11 @@
     mainview.contentMode = UIViewContentModeScaleAspectFit;
 
     if (rundomViewInt == 0) {
-        name =@"鳥";
+        name =@"とり";
        
        
     }else if (rundomViewInt == 1){
-        name = @"飛行機";
+        name = @"ひこうき";
     }
     
     
@@ -67,9 +67,9 @@
         
         
         [self.view addSubview:mainview];
-        [UIView animateWithDuration:0.65f // アニメーション速度2.5秒
+        [UIView animateWithDuration:0.8f // アニメーション速度2.5秒
                               delay:0.0f // 1秒後にアニメーション
-                            options:UIViewAnimationOptionCurveLinear
+                            options:UIViewAnimationOptionCurveEaseIn
                          animations:^{
                              CGAffineTransform translate = CGAffineTransformMakeTranslation(-445, 0);
                              [mainview setTransform:translate];
@@ -90,6 +90,17 @@
                                                       }];
         
     }
+    seikaiLabel = [[UILabel alloc]
+    initWithFrame:CGRectMake(self.view.frame.size.width/2 - 100,self.view.frame.size.height-300,200  ,100 )];
+    seikaiLabel.textColor = [UIColor whiteColor];
+
+    seikaiLabel.font =[UIFont boldSystemFontOfSize:50];
+    seikaiLabel.backgroundColor=[UIColor clearColor];
+    seikaiLabel.text=@"正解！！";
+    seikaiLabel.textAlignment = NSTextAlignmentCenter;
+    [self.view addSubview:seikaiLabel];
+    seikaiLabel.alpha = 0 ;
+    
 }
 -(void)mouitido:(UIButton *)button{
    
@@ -103,7 +114,7 @@
     
     [UIView animateWithDuration:0.8f // アニメーション速度2.5秒
                           delay:0.0f // 1秒後にアニメーション
-                        options:UIViewAnimationOptionCurveLinear
+                        options:UIViewAnimationOptionCurveEaseIn
                      animations:^{
                          CGAffineTransform translate = CGAffineTransformMakeTranslation(-890, 0);
                          [mainview setTransform:translate];
@@ -142,8 +153,9 @@
         [UIView animateWithDuration:5.0
                          animations:^{
                              mainview.alpha = 1.0;
+                             seikaiLabel.alpha = 1.0;
                          }completion:^(BOOL finished){
-                             
+                            
                          }];
         
          
