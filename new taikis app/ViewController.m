@@ -32,11 +32,11 @@
     imgName = [NSString stringWithFormat:@"pico%d.png",rundomViewInt];
     img = [UIImage imageNamed:imgName];
     mainview = [[UIImageView alloc] initWithImage:img];
-    mainview.frame = CGRectMake(350,200, 100,  100);//[[UIScreen mainScreen]  bounds];
+    mainview.frame = CGRectMake(350,200, 100,  100);
     mainview.contentMode = UIViewContentModeScaleAspectFit;
-   
+
     if (rundomViewInt == 0) {
-        name =@"鳥,とり";
+        name =@"鳥";
        
        
     }else if (rundomViewInt == 1){
@@ -67,9 +67,9 @@
         
         
         [self.view addSubview:mainview];
-        [UIView animateWithDuration:1.0f // アニメーション速度2.5秒
+        [UIView animateWithDuration:0.65f // アニメーション速度2.5秒
                               delay:0.0f // 1秒後にアニメーション
-                            options:UIViewAnimationOptionCurveEaseInOut
+                            options:UIViewAnimationOptionCurveLinear
                          animations:^{
                              CGAffineTransform translate = CGAffineTransformMakeTranslation(-445, 0);
                              [mainview setTransform:translate];
@@ -92,9 +92,7 @@
     }
 }
 -(void)mouitido:(UIButton *)button{
-    //    mainBidama.hidden ;
-//    CGRect rect = CGRectMake(320,200, 30,  30);
-//    mainview.frame = rect;
+   
     mainview.frame = CGRectMake(350,200, 100,  100);
     mainview.contentMode = UIViewContentModeScaleAspectFit;
 
@@ -103,9 +101,9 @@
     [tf removeFromSuperview];
     
     
-    [UIView animateWithDuration:1.0f // アニメーション速度2.5秒
+    [UIView animateWithDuration:0.8f // アニメーション速度2.5秒
                           delay:0.0f // 1秒後にアニメーション
-                        options:UIViewAnimationOptionCurveEaseInOut
+                        options:UIViewAnimationOptionCurveLinear
                      animations:^{
                          CGAffineTransform translate = CGAffineTransformMakeTranslation(-890, 0);
                          [mainview setTransform:translate];
@@ -127,11 +125,30 @@
     
     return YES;
 }
-
+/*キーボードを閉じた時*/
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
+    //テキストフィールドとNSStringで宣言して文字が一致した時
     if ([textField.text isEqualToString:name]) {
         NSLog(@"一致");
+        [tf  removeFromSuperview];
+        [onemore removeFromSuperview];
+        
+        mainview.frame = CGRectMake(self.view.frame.size.width/2 - 150,self.view.frame.size.height-600, 300,  300);
+        mainview.contentMode = UIViewContentModeScaleAspectFit;
+        mainview.alpha = 0;
+        self.view.backgroundColor = [UIColor blackColor];//背景を黒にする
+        //5秒かけて画像を表示
+        [UIView animateWithDuration:5.0
+                         animations:^{
+                             mainview.alpha = 1.0;
+                         }completion:^(BOOL finished){
+                             
+                         }];
+        
+         
+     
+        
     }
    
 }
