@@ -14,6 +14,7 @@
     int countDown ;
     NSTimer * countDownTimer;
     
+    
     UIImage *img;
     UIImageView *mainview;
     UIButton *onemore;
@@ -21,10 +22,12 @@
     UITextField *tf;//答えを入力する。
     
     int rundomViewInt ;
-   
+    
     UILabel *seikaiLabel;
     NSString *imgName;
     NSString *name ;
+    
+    
 }
 
 

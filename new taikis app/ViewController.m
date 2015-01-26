@@ -17,6 +17,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    self.view.backgroundColor = [UIColor whiteColor];
+    
     countDownTimer =[NSTimer   scheduledTimerWithTimeInterval:1
                                                        target:self
                                                      selector:@selector(countdwontime:)
@@ -96,7 +98,7 @@
 
     seikaiLabel.font =[UIFont boldSystemFontOfSize:50];
     seikaiLabel.backgroundColor=[UIColor clearColor];
-    seikaiLabel.text=@"正解！！";
+    seikaiLabel.text=[NSString stringWithFormat:@"%@",name];
     seikaiLabel.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:seikaiLabel];
     seikaiLabel.alpha = 0 ;
@@ -148,7 +150,8 @@
         mainview.frame = CGRectMake(self.view.frame.size.width/2 - 150,self.view.frame.size.height-600, 300,  300);
         mainview.contentMode = UIViewContentModeScaleAspectFit;
         mainview.alpha = 0;
-        self.view.backgroundColor = [UIColor blackColor];//背景を黒にする
+        self.view.backgroundColor = [UIColor blackColor];
+    
         //5秒かけて画像を表示
         [UIView animateWithDuration:5.0
                          animations:^{
@@ -164,6 +167,7 @@
     }
    
 }
+
 
 //画面のどこかをタッチしたらキーボードを閉じる
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
