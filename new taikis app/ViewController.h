@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController<UITextFieldDelegate>{
-    
-    IBOutlet UILabel *downLabel;
+@interface ViewController: UIViewController<UITextFieldDelegate>{
+  
+     UILabel *downLabel;
     int countDown ;
     NSTimer * countDownTimer;
     

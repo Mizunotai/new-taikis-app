@@ -28,7 +28,7 @@
     UIViewController *hogeViewController = [[ViewController alloc] init];
     hogeViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [self presentViewController:hogeViewController animated:YES completion:nil];
-
+    
 }
 /*
 #pragma mark - Navigation

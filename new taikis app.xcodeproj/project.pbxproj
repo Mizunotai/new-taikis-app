@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B662CE3B1A76580F005C9C22 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B662CE3A1A76580F005C9C22 /* HomeViewController.m */; };
 		B662CE441A765E6B005C9C22 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B662CE431A765E6B005C9C22 /* Main.storyboard */; };
 		B67F0B601A62C19100E84E76 /* pico0.png in Resources */ = {isa = PBXBuildFile; fileRef = B67F0B5F1A62C19100E84E76 /* pico0.png */; };
 		B67F0B621A62C19A00E84E76 /* pico1.png in Resources */ = {isa = PBXBuildFile; fileRef = B67F0B611A62C19A00E84E76 /* pico1.png */; };
@@ -30,8 +29,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		B662CE391A76580F005C9C22 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
-		B662CE3A1A76580F005C9C22 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		B662CE431A765E6B005C9C22 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../../../.Trash/Main.storyboard; sourceTree = "<group>"; };
 		B67F0B5F1A62C19100E84E76 /* pico0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pico0.png; path = "../../画像/オリジナル画像/pico0.png"; sourceTree = "<group>"; };
 		B67F0B611A62C19A00E84E76 /* pico1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pico1.png; path = "../../画像/オリジナル画像/pico1.png"; sourceTree = "<group>"; };
@@ -92,8 +89,6 @@
 				B67F0B5F1A62C19100E84E76 /* pico0.png */,
 				B689EC3A1A611495000A6E11 /* AppDelegate.h */,
 				B689EC3B1A611495000A6E11 /* AppDelegate.m */,
-				B662CE391A76580F005C9C22 /* HomeViewController.h */,
-				B662CE3A1A76580F005C9C22 /* HomeViewController.m */,
 				B689EC3D1A611495000A6E11 /* ViewController.h */,
 				B689EC3E1A611495000A6E11 /* ViewController.m */,
 				B662CE431A765E6B005C9C22 /* Main.storyboard */,
@@ -235,7 +230,6 @@
 				B689EC3F1A611495000A6E11 /* ViewController.m in Sources */,
 				B689EC3C1A611495000A6E11 /* AppDelegate.m in Sources */,
 				B689EC391A611495000A6E11 /* main.m in Sources */,
-				B662CE3B1A76580F005C9C22 /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

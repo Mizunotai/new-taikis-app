@@ -10,6 +10,8 @@
 
 @interface ViewController ()
 
+
+
 @end
 
 @implementation ViewController
@@ -17,7 +19,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    self.view.backgroundColor = [UIColor whiteColor];
+    
+    
+    self.view.backgroundColor = [UIColor blackColor];
+    
     
     countDownTimer =[NSTimer   scheduledTimerWithTimeInterval:1
                                                        target:self
@@ -30,13 +35,20 @@
     
     NSLog(@"ぬっきーは%d才",rundomViewInt);
     
+    downLabel =[[UILabel alloc]initWithFrame:
+                CGRectMake(self.view.frame.size.width/2-100, self.view.frame.size.height/2-100 ,200 ,200)];
+    downLabel.textColor = [UIColor whiteColor];
+    downLabel.font =[UIFont boldSystemFontOfSize:200];
+    downLabel.textAlignment = NSTextAlignmentCenter;
     downLabel.text =[NSString stringWithFormat:@"%d",countDown];
+    [self.view addSubview:downLabel];
     imgName = [NSString stringWithFormat:@"pico%d.png",rundomViewInt];
+    
     img = [UIImage imageNamed:imgName];
     mainview = [[UIImageView alloc] initWithImage:img];
     mainview.frame = CGRectMake(350,200, 100,  100);
     mainview.contentMode = UIViewContentModeScaleAspectFit;
-
+    
     if (rundomViewInt == 0) {
         name =@"とり";
        
@@ -141,6 +153,7 @@
 /*キーボードを閉じた時*/
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
+  
     //テキストフィールドとNSStringで宣言して文字が一致した時
     if ([textField.text isEqualToString:name]) {
         NSLog(@"一致");
@@ -178,7 +191,6 @@
         }
     }];
 }
-
 
 
 
