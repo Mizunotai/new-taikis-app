@@ -68,6 +68,20 @@
     tf.returnKeyType = UIReturnKeyDone;
     tf.clearButtonMode = UITextFieldViewModeAlways;
     tf.delegate = self ;
+    
+    seikaiLabel = [[UILabel alloc]
+                   initWithFrame:CGRectMake(self.view.frame.size.width/2 - 100,self.view.frame.size.height-300,200  ,100 )];
+    seikaiLabel.textColor = [UIColor whiteColor];
+    
+    seikaiLabel.font =[UIFont boldSystemFontOfSize:50];
+    seikaiLabel.backgroundColor=[UIColor clearColor];
+    seikaiLabel.text=[NSString stringWithFormat:@"%@",name];
+    seikaiLabel.textAlignment = NSTextAlignmentCenter;
+    [self.view addSubview:seikaiLabel];
+    seikaiLabel.alpha = 0 ;
+
+    
+    label.alpha = 0;
    }
 - (void)countdwontime:(NSTimer *)_timer {
     
@@ -76,44 +90,41 @@
     
     if (countDown ==0){
     
-        
-    downLabel.hidden = YES;
-        
-        
-        [self.view addSubview:mainview];
-        [UIView animateWithDuration:0.8f // アニメーション速度2.5秒
-                              delay:0.0f // 1秒後にアニメーション
-                            options:UIViewAnimationOptionCurveEaseIn
-                         animations:^{
-                             CGAffineTransform translate = CGAffineTransformMakeTranslation(-445, 0);
-                             [mainview setTransform:translate];
-                             // アニメーションをする処理
-                         } completion:^(BOOL finished) {
-                             // アニメーションが終わった後実行する処理
-                             //もう一度のボタンを表示
-                             onemore =[[UIButton alloc]initWithFrame:CGRectMake(112, 160, 155, 55)];
-                             onemore.backgroundColor =[UIColor redColor];
-                             [onemore setTitle:@"もう一度" forState:UIControlStateNormal];
-                             [onemore addTarget:self
-                                         action:@selector(mouitido:) forControlEvents:UIControlEventTouchUpInside];
-                             [self.view addSubview:onemore];
-                             //TextField表示
-                             
-                             [self.view addSubview:tf];
-                             [tf becomeFirstResponder];
-                                                      }];
-        
-    }
-    seikaiLabel = [[UILabel alloc]
-    initWithFrame:CGRectMake(self.view.frame.size.width/2 - 100,self.view.frame.size.height-300,200  ,100 )];
-    seikaiLabel.textColor = [UIColor whiteColor];
+        label.alpha = 1;
+        downLabel.hidden = YES;
+    
+    
+            [UIView animateWithDuration:1.5f
+                             animations:^{
+                                 label.alpha = 0;
+            } completion:^(BOOL finished){
+                [self.view addSubview:mainview];
+                
+                
+                [UIView animateWithDuration:0.8f // アニメーション速度2.5秒
+                                      delay:0.0f // 1秒後にアニメーション
+                                    options:UIViewAnimationOptionCurveEaseIn
+                                 animations:^{
+                                     CGAffineTransform translate = CGAffineTransformMakeTranslation(-445, 0);
+                                     [mainview setTransform:translate];
+                                     // アニメーションをする処理
+                                 } completion:^(BOOL finished) {
+                                     // アニメーションが終わった後実行する処理
+                                     //もう一度のボタンを表示
+                                     onemore =[[UIButton alloc]initWithFrame:CGRectMake(112, 160, 155, 55)];
+                                     onemore.backgroundColor =[UIColor redColor];
+                                     [onemore setTitle:@"もう一度" forState:UIControlStateNormal];
+                                     [onemore addTarget:self
+                                                 action:@selector(mouitido:) forControlEvents:UIControlEventTouchUpInside];
+                                     [self.view addSubview:onemore];
+                                     //TextField表示
+                                     
+                                     [self.view addSubview:tf];
+                                     [tf becomeFirstResponder];
+                                 }];
 
-    seikaiLabel.font =[UIFont boldSystemFontOfSize:50];
-    seikaiLabel.backgroundColor=[UIColor clearColor];
-    seikaiLabel.text=[NSString stringWithFormat:@"%@",name];
-    seikaiLabel.textAlignment = NSTextAlignmentCenter;
-    [self.view addSubview:seikaiLabel];
-    seikaiLabel.alpha = 0 ;
+            }];
+        }
     
 }
 -(void)mouitido:(UIButton *)button{

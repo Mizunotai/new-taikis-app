@@ -13,7 +13,7 @@
      UILabel *downLabel;
     int countDown ;
     NSTimer * countDownTimer;
-    
+    IBOutlet UILabel *label;
     
     UIImage *img;
     UIImageView *mainview;
