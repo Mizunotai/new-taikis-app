@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		B662CE441A765E6B005C9C22 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B662CE431A765E6B005C9C22 /* Main.storyboard */; };
+		B67ABF4D1A7A66BC0099F19E /* BButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B67ABF461A7A66BC0099F19E /* BButton.m */; };
+		B67ABF4E1A7A66BC0099F19E /* NSString+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = B67ABF481A7A66BC0099F19E /* NSString+FontAwesome.m */; };
+		B67ABF4F1A7A66BC0099F19E /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B67ABF4A1A7A66BC0099F19E /* FontAwesome.ttf */; };
+		B67ABF501A7A66BC0099F19E /* UIColor+BButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B67ABF4C1A7A66BC0099F19E /* UIColor+BButton.m */; };
+		B67ABF531A7A66FA0099F19E /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B67ABF521A7A66FA0099F19E /* HomeViewController.m */; };
+		B67ABF551A7A67440099F19E /* FontAwesomeIcons.html in Resources */ = {isa = PBXBuildFile; fileRef = B67ABF541A7A67440099F19E /* FontAwesomeIcons.html */; };
 		B67F0B601A62C19100E84E76 /* pico0.png in Resources */ = {isa = PBXBuildFile; fileRef = B67F0B5F1A62C19100E84E76 /* pico0.png */; };
 		B67F0B621A62C19A00E84E76 /* pico1.png in Resources */ = {isa = PBXBuildFile; fileRef = B67F0B611A62C19A00E84E76 /* pico1.png */; };
 		B689EC391A611495000A6E11 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B689EC381A611495000A6E11 /* main.m */; };
@@ -30,6 +36,16 @@
 
 /* Begin PBXFileReference section */
 		B662CE431A765E6B005C9C22 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../../../.Trash/Main.storyboard; sourceTree = "<group>"; };
+		B67ABF451A7A66BC0099F19E /* BButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BButton.h; sourceTree = "<group>"; };
+		B67ABF461A7A66BC0099F19E /* BButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BButton.m; sourceTree = "<group>"; };
+		B67ABF471A7A66BC0099F19E /* NSString+FontAwesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FontAwesome.h"; sourceTree = "<group>"; };
+		B67ABF481A7A66BC0099F19E /* NSString+FontAwesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FontAwesome.m"; sourceTree = "<group>"; };
+		B67ABF4A1A7A66BC0099F19E /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.ttf; sourceTree = "<group>"; };
+		B67ABF4B1A7A66BC0099F19E /* UIColor+BButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+BButton.h"; sourceTree = "<group>"; };
+		B67ABF4C1A7A66BC0099F19E /* UIColor+BButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+BButton.m"; sourceTree = "<group>"; };
+		B67ABF511A7A66FA0099F19E /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeViewController.h; path = ../HomeViewController.h; sourceTree = "<group>"; };
+		B67ABF521A7A66FA0099F19E /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeViewController.m; path = ../HomeViewController.m; sourceTree = "<group>"; };
+		B67ABF541A7A67440099F19E /* FontAwesomeIcons.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = FontAwesomeIcons.html; path = ../FontAwesomeIcons.html; sourceTree = "<group>"; };
 		B67F0B5F1A62C19100E84E76 /* pico0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pico0.png; path = "../../画像/オリジナル画像/pico0.png"; sourceTree = "<group>"; };
 		B67F0B611A62C19A00E84E76 /* pico1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pico1.png; path = "../../画像/オリジナル画像/pico1.png"; sourceTree = "<group>"; };
 		B689EC331A611495000A6E11 /* new taikis app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "new taikis app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,6 +80,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B67ABF441A7A66BC0099F19E /* BButton */ = {
+			isa = PBXGroup;
+			children = (
+				B67ABF541A7A67440099F19E /* FontAwesomeIcons.html */,
+				B67ABF451A7A66BC0099F19E /* BButton.h */,
+				B67ABF461A7A66BC0099F19E /* BButton.m */,
+				B67ABF471A7A66BC0099F19E /* NSString+FontAwesome.h */,
+				B67ABF481A7A66BC0099F19E /* NSString+FontAwesome.m */,
+				B67ABF491A7A66BC0099F19E /* resources */,
+				B67ABF4B1A7A66BC0099F19E /* UIColor+BButton.h */,
+				B67ABF4C1A7A66BC0099F19E /* UIColor+BButton.m */,
+			);
+			name = BButton;
+			path = "../../BButton-master/BButton";
+			sourceTree = "<group>";
+		};
+		B67ABF491A7A66BC0099F19E /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				B67ABF4A1A7A66BC0099F19E /* FontAwesome.ttf */,
+			);
+			path = resources;
+			sourceTree = "<group>";
+		};
 		B689EC2A1A611495000A6E11 = {
 			isa = PBXGroup;
 			children = (
@@ -85,12 +125,15 @@
 		B689EC351A611495000A6E11 /* new taikis app */ = {
 			isa = PBXGroup;
 			children = (
+				B67ABF441A7A66BC0099F19E /* BButton */,
 				B67F0B611A62C19A00E84E76 /* pico1.png */,
 				B67F0B5F1A62C19100E84E76 /* pico0.png */,
 				B689EC3A1A611495000A6E11 /* AppDelegate.h */,
 				B689EC3B1A611495000A6E11 /* AppDelegate.m */,
 				B689EC3D1A611495000A6E11 /* ViewController.h */,
 				B689EC3E1A611495000A6E11 /* ViewController.m */,
+				B67ABF511A7A66FA0099F19E /* HomeViewController.h */,
+				B67ABF521A7A66FA0099F19E /* HomeViewController.m */,
 				B662CE431A765E6B005C9C22 /* Main.storyboard */,
 				B689EC431A611495000A6E11 /* Images.xcassets */,
 				B689EC451A611495000A6E11 /* LaunchScreen.xib */,
@@ -207,9 +250,11 @@
 			files = (
 				B67F0B621A62C19A00E84E76 /* pico1.png in Resources */,
 				B689EC471A611495000A6E11 /* LaunchScreen.xib in Resources */,
+				B67ABF551A7A67440099F19E /* FontAwesomeIcons.html in Resources */,
 				B689EC441A611495000A6E11 /* Images.xcassets in Resources */,
 				B662CE441A765E6B005C9C22 /* Main.storyboard in Resources */,
 				B67F0B601A62C19100E84E76 /* pico0.png in Resources */,
+				B67ABF4F1A7A66BC0099F19E /* FontAwesome.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,8 +272,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B67ABF501A7A66BC0099F19E /* UIColor+BButton.m in Sources */,
+				B67ABF4E1A7A66BC0099F19E /* NSString+FontAwesome.m in Sources */,
 				B689EC3F1A611495000A6E11 /* ViewController.m in Sources */,
 				B689EC3C1A611495000A6E11 /* AppDelegate.m in Sources */,
+				B67ABF4D1A7A66BC0099F19E /* BButton.m in Sources */,
+				B67ABF531A7A66FA0099F19E /* HomeViewController.m in Sources */,
 				B689EC391A611495000A6E11 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
