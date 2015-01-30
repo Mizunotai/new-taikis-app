@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "BButton.h"
 @interface ViewController: UIViewController<UITextFieldDelegate>{
   
      UILabel *downLabel;
@@ -26,8 +26,9 @@
     UILabel *seikaiLabel;
     NSString *imgName;
     NSString *name ;
+    UIButton *home;
     
-    
+   
 }
 
 

@@ -21,7 +21,7 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     
-    self.view.backgroundColor = [UIColor blackColor];
+    self.view.backgroundColor = [UIColor whiteColor];
     
     
     countDownTimer =[NSTimer   scheduledTimerWithTimeInterval:1
@@ -37,7 +37,7 @@
     
     downLabel =[[UILabel alloc]initWithFrame:
                 CGRectMake(self.view.frame.size.width/2-100, self.view.frame.size.height/2-100 ,200 ,200)];
-    downLabel.textColor = [UIColor whiteColor];
+    downLabel.textColor = [UIColor blackColor];
     downLabel.font =[UIFont boldSystemFontOfSize:200];
     downLabel.textAlignment = NSTextAlignmentCenter;
     downLabel.text =[NSString stringWithFormat:@"%d",countDown];
@@ -79,10 +79,24 @@
     seikaiLabel.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:seikaiLabel];
     seikaiLabel.alpha = 0 ;
-
-    
     label.alpha = 0;
-   }
+    BButtonType type = BButtonTypeFacebook;
+    CGRect frame = CGRectMake(150,500,100,60);
+    
+//  home =[[ UIButton alloc]initWithFrame:CGRectMake(150,40,100, 60)];
+    home=[[BButton alloc]initWithFrame:frame type:type];
+
+    [home setTitle:@"ホームへ" forState:UIControlStateNormal];
+    [home addTarget:self
+            action:@selector(hoge:) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+    
+    
+    }
+-(void)setTitle:(NSString *)title forState:(UIControlState)state{
+    
+}
 - (void)countdwontime:(NSTimer *)_timer {
     
     countDown -= 1;
@@ -94,7 +108,7 @@
         downLabel.hidden = YES;
     
     
-            [UIView animateWithDuration:1.5f
+            [UIView animateWithDuration:0.8f
                              animations:^{
                                  label.alpha = 0;
             } completion:^(BOOL finished){
@@ -141,7 +155,9 @@
                           delay:0.0f // 1秒後にアニメーション
                         options:UIViewAnimationOptionCurveEaseIn
                      animations:^{
-                         CGAffineTransform translate = CGAffineTransformMakeTranslation(-890, 0);
+                         
+                        
+                          CGAffineTransform translate = CGAffineTransformMakeTranslation(-890, 0);
                          [mainview setTransform:translate];
                          // アニメーションをする処理
                      } completion:^(BOOL finished) {
@@ -182,7 +198,7 @@
                              mainview.alpha = 1.0;
                              seikaiLabel.alpha = 1.0;
                          }completion:^(BOOL finished){
-                            
+                            [self.view addSubview:home];
                          }];
         
          
@@ -203,8 +219,9 @@
     }];
 }
 
-
-
+-(void)hoge:(UIButton*)button{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
