@@ -82,14 +82,19 @@
     label.alpha = 0;
     BButtonType type = BButtonTypeFacebook;
     CGRect frame = CGRectMake(150,500,100,60);
-    
-//  home =[[ UIButton alloc]initWithFrame:CGRectMake(150,40,100, 60)];
     home=[[BButton alloc]initWithFrame:frame type:type];
-
     [home setTitle:@"ホームへ" forState:UIControlStateNormal];
     [home addTarget:self
             action:@selector(hoge:) forControlEvents:UIControlEventTouchUpInside];
+   
     
+    CGRect onemoreFrame =CGRectMake(112, 160, 155, 55);
+    BButtonType onemoreType = BButtonTypeWarning;
+    onemore =[[BButton alloc]initWithFrame:onemoreFrame type:onemoreType];
+    [onemore setTitle:@"もう一度" forState:UIControlStateNormal];
+    [onemore addTarget:self
+                action:@selector(mouitido:) forControlEvents:UIControlEventTouchUpInside];
+
     
     
     
@@ -125,11 +130,6 @@
                                  } completion:^(BOOL finished) {
                                      // アニメーションが終わった後実行する処理
                                      //もう一度のボタンを表示
-                                     onemore =[[UIButton alloc]initWithFrame:CGRectMake(112, 160, 155, 55)];
-                                     onemore.backgroundColor =[UIColor redColor];
-                                     [onemore setTitle:@"もう一度" forState:UIControlStateNormal];
-                                     [onemore addTarget:self
-                                                 action:@selector(mouitido:) forControlEvents:UIControlEventTouchUpInside];
                                      [self.view addSubview:onemore];
                                      //TextField表示
                                      
@@ -222,6 +222,7 @@
 -(void)hoge:(UIButton*)button{
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
