@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B606E57B1A7DF0A800079952 /* Collection.m in Sources */ = {isa = PBXBuildFile; fileRef = B606E57A1A7DF0A800079952 /* Collection.m */; };
 		B662CE441A765E6B005C9C22 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B662CE431A765E6B005C9C22 /* Main.storyboard */; };
 		B67ABF5C1A7B7CC60099F19E /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B67ABF5B1A7B7CC60099F19E /* HomeViewController.m */; };
 		B67ABF661A7B847C0099F19E /* BButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B67ABF5F1A7B847C0099F19E /* BButton.m */; };
@@ -34,6 +35,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B606E5791A7DF0A800079952 /* Collection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Collection.h; sourceTree = "<group>"; };
+		B606E57A1A7DF0A800079952 /* Collection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Collection.m; sourceTree = "<group>"; };
 		B662CE431A765E6B005C9C22 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../../../.Trash/Main.storyboard; sourceTree = "<group>"; };
 		B67ABF5A1A7B7CC60099F19E /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeViewController.h; path = ../../../.Trash/HomeViewController.h; sourceTree = "<group>"; };
 		B67ABF5B1A7B7CC60099F19E /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeViewController.m; path = ../../../.Trash/HomeViewController.m; sourceTree = "<group>"; };
@@ -132,6 +135,8 @@
 				B689EC3E1A611495000A6E11 /* ViewController.m */,
 				B67ABF5A1A7B7CC60099F19E /* HomeViewController.h */,
 				B67ABF5B1A7B7CC60099F19E /* HomeViewController.m */,
+				B606E5791A7DF0A800079952 /* Collection.h */,
+				B606E57A1A7DF0A800079952 /* Collection.m */,
 				B689EC431A611495000A6E11 /* Images.xcassets */,
 				B689EC451A611495000A6E11 /* LaunchScreen.xib */,
 				B689EC361A611495000A6E11 /* Supporting Files */,
@@ -271,6 +276,7 @@
 				B67ABF661A7B847C0099F19E /* BButton.m in Sources */,
 				B689EC3F1A611495000A6E11 /* ViewController.m in Sources */,
 				B67ABF691A7B847C0099F19E /* UIColor+BButton.m in Sources */,
+				B606E57B1A7DF0A800079952 /* Collection.m in Sources */,
 				B67ABF671A7B847C0099F19E /* NSString+FontAwesome.m in Sources */,
 				B689EC3C1A611495000A6E11 /* AppDelegate.m in Sources */,
 				B689EC391A611495000A6E11 /* main.m in Sources */,
