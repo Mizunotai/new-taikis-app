@@ -25,9 +25,10 @@
     
     UILabel *seikaiLabel;
     NSString *imgName;
-    NSString *name ;
+    NSString *viewName ;
     UIButton *home;
     
+    NSArray *viewNames;
    
 }
 

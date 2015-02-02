@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ViewController.h"
 @interface Collection : UIViewController<UICollectionViewDataSource,UICollectionViewDelegate>{
-    int num ;
+     
 }
 @property (weak, nonatomic) IBOutlet UICollectionView *viewCollection;
 

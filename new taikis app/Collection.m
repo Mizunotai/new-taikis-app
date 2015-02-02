@@ -7,7 +7,7 @@
 //
 
 #import "Collection.h"
-
+#import "ViewController.h"
 @interface Collection ()
 
 @end
@@ -20,17 +20,18 @@
     
     self.viewCollection.delegate = self;
     self.viewCollection.dataSource = self;
-
+    
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
+     
     return 1;
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     UICollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
     cell.backgroundColor = [UIColor whiteColor];
-    NSString  *name =[NSString stringWithFormat:@"pico%d"];
+   
     return cell;
 
 }
