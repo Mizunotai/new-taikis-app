@@ -51,15 +51,10 @@
     
     if (rundomViewInt == 0) {
        
-        viewNames = [NSArray arrayWithObjects:@"鳥",@"とり",@"bard",@"🐦",nil];
-        NSLog(@"%@",viewNames);
-        viewName =[viewNames componentsJoinedByString:@",\n"];
-        NSLog(@"\viewName:%@",viewName);
+ name = @"とり";
     }else if (rundomViewInt == 1){
-        viewNames = [NSArray arrayWithObjects:@"飛行機",@"ひこうき",@"plane",@"✈️", nil];
-        viewName = [viewNames componentsJoinedByString:@",\n"];
-        NSLog(@"%@",viewNames);
-        NSLog(@"\viewNames:%@",viewName);
+        name = @"ひこうき";
+    
     }
     
     
@@ -80,7 +75,7 @@
     
     seikaiLabel.font =[UIFont boldSystemFontOfSize:50];
     seikaiLabel.backgroundColor=[UIColor clearColor];
-    seikaiLabel.text=[NSString stringWithFormat:@"%@",viewName];
+    seikaiLabel.text=[NSString stringWithFormat:@"%@",name];
     seikaiLabel.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:seikaiLabel];
     seikaiLabel.alpha = 0 ;
@@ -187,7 +182,7 @@
 {
   
     //テキストフィールドとNSStringで宣言して文字が一致した時
-    if ([textField.text isEqualToString:viewName]) {
+    if ([textField.text isEqualToString:name]) {
         NSLog(@"一致");
         [tf  removeFromSuperview];
         [onemore removeFromSuperview];
