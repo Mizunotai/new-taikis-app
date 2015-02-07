@@ -19,8 +19,6 @@
     UIImageView *mainview;
     UIButton *onemore;
     
-    UITextField *tf;//答えを入力する。
-    
     int rundomViewInt ;
     
     UILabel *seikaiLabel;
@@ -33,9 +31,17 @@
     UIButton *btn4;
     int rundom;
     
+    
     NSString *nameString[4];
     
     NSString *btnString[4];
+
+    NSString *btnTitle1;
+    NSString *btnTitle2;
+    NSString *btnTitle3;
+    NSString *btnTitle4;
+    
+    
 }
 
 

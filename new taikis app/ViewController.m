@@ -71,6 +71,7 @@
     
     
     
+    
 
 
 
@@ -113,6 +114,9 @@
     btn2 =[[BButton alloc]initWithFrame:btn2Rect type:btn2Type];
     [btn2 addTarget:self action:@selector(btn2:) forControlEvents:UIControlEventTouchUpInside];
     [btn2 setTitle:@"%@" forState:UIControlStateNormal];
+    
+    btn2.titleLabel.text=[NSString stringWithFormat:@"%@",btnTitle1];
+    
     [self.view addSubview:btn2];
     
     CGRect btn3Rect =CGRectMake(80,self.view.frame.size.height/2+140 , 215, 50);
@@ -129,10 +133,9 @@
     [btn4 setTitle:@"%@" forState:UIControlStateNormal];
     [self.view addSubview:btn4];
     
-    for (int i = 0; i<5; i++) {
-         int n = random() % 4 + 1;
+
     
-    }
+
     
  
     }
@@ -182,7 +185,7 @@
 
     [self.view addSubview:mainview];
     onemore.hidden = YES;
-    [tf removeFromSuperview];
+    
     
     
     [UIView animateWithDuration:0.8f // アニメーション速度2.5秒
@@ -196,8 +199,7 @@
                          // アニメーションをする処理
                      } completion:^(BOOL finished) {
                          
-                         [self.view addSubview:tf];
-                         //[tf becomeFirstResponder];
+                                                 //[tf becomeFirstResponder];
                          
                          
                      }];
@@ -216,6 +218,7 @@
 -(void)btn4:(UIButton *)button{
     
 }
+
 -(void)hoge:(UIButton*)button{
     [self dismissViewControllerAnimated:YES completion:nil];
 }
