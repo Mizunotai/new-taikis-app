@@ -11,7 +11,6 @@
 @interface ViewController ()
 
 
-
 @end
 
 @implementation ViewController
@@ -31,8 +30,8 @@
                                                       repeats:YES];
     
     countDown = 3;
-    rundomViewInt = arc4random_uniform(2);
-    
+    rundomViewInt = arc4random_uniform(2);//画像をランダムで表示させるためのもの
+    rundom = arc4random_uniform(4);//画像の名前表示させるためのもの
     NSLog(@"ぬっきーは%d才",rundomViewInt);
     
     downLabel =[[UILabel alloc]initWithFrame:
@@ -50,24 +49,31 @@
     mainview.contentMode = UIViewContentModeScaleAspectFit;
     
     if (rundomViewInt == 0) {
-       
- name = @"とり";
+       name = @"とり";
+        nameString[0] =@"とり";
+        nameString[1] =@"ひこうき";
+        nameString[2] =@"くも";
+        nameString[3] =@"いぬ";
+        
     }else if (rundomViewInt == 1){
         name = @"ひこうき";
-    
+        nameString[0] =@"とり";
+        nameString[1] =@"ひこうき";
+        nameString[2] =@"くも";
+        nameString[3] =@"いぬ";
     }
     
     
-    //正解を入力するtextfieldの生成
-    tf = [[UITextField alloc]initWithFrame:CGRectMake(112, 236, 150, 40)];
-    tf.textColor =[UIColor blackColor];
-    tf.backgroundColor = [UIColor whiteColor];
-    tf.borderStyle = UITextBorderStyleRoundedRect;
-    tf.placeholder =@"ここに書いてね";
-    tf.keyboardType =UIKeyboardTypeDefault;
-    tf.returnKeyType = UIReturnKeyDone;
-    tf.clearButtonMode = UITextFieldViewModeAlways;
-    tf.delegate = self ;
+    btnString[0]= @"btn1";
+    btnString[1]= @"btn2";
+    btnString[2]= @"btn3";
+    btnString[3]= @"btn4";
+    
+    
+    
+
+
+
     
     seikaiLabel = [[UILabel alloc]
                    initWithFrame:CGRectMake(self.view.frame.size.width/2 - 100,self.view.frame.size.height-300,200  ,100 )];
@@ -80,7 +86,7 @@
     [self.view addSubview:seikaiLabel];
     seikaiLabel.alpha = 0 ;
     label.alpha = 0;
-    BButtonType type = BButtonTypeFacebook;
+    BButtonType type = BButtonTypeSuccess;
     CGRect frame = CGRectMake(150,500,100,60);
     home=[[BButton alloc]initWithFrame:frame type:type];
     [home setTitle:@"ホームへ" forState:UIControlStateNormal];
@@ -94,14 +100,43 @@
     [onemore setTitle:@"もう一度" forState:UIControlStateNormal];
     [onemore addTarget:self
                 action:@selector(mouitido:) forControlEvents:UIControlEventTouchUpInside];
-
     
+    CGRect btnRect =CGRectMake(80,self.view.frame.size.height/2+20, 215, 50);
+    BButtonType btnType =BButtonTypeSuccess ;
+    btn1 =[[BButton alloc]initWithFrame:btnRect type:btnType];
+    [btn1 addTarget:self action:@selector(btn:) forControlEvents:UIControlEventTouchUpInside];
+    [btn1 setTitle:@"%@" forState:UIControlStateNormal];
+    [self.view addSubview:btn1];
     
+    CGRect btn2Rect =CGRectMake(80,self.view.frame.size.height/2+80 , 215, 50);
+    BButtonType btn2Type =BButtonTypeSuccess ;
+    btn2 =[[BButton alloc]initWithFrame:btn2Rect type:btn2Type];
+    [btn2 addTarget:self action:@selector(btn2:) forControlEvents:UIControlEventTouchUpInside];
+    [btn2 setTitle:@"%@" forState:UIControlStateNormal];
+    [self.view addSubview:btn2];
+    
+    CGRect btn3Rect =CGRectMake(80,self.view.frame.size.height/2+140 , 215, 50);
+    BButtonType btn3Type =BButtonTypeSuccess ;
+    btn3 =[[BButton alloc]initWithFrame:btn3Rect type:btn3Type];
+    [btn3 addTarget:self action:@selector(btn3:) forControlEvents:UIControlEventTouchUpInside];
+    [btn3 setTitle:@"%@" forState:UIControlStateNormal];
+    [self.view addSubview:btn3];
+    
+    CGRect btn4Rect =CGRectMake(80,self.view.frame.size.height/2+200 , 215, 50);
+    BButtonType btn4Type =BButtonTypeSuccess ;
+    btn4 =[[BButton alloc]initWithFrame:btn4Rect type:btn4Type];
+    [btn4 addTarget:self action:@selector(btn4:) forControlEvents:UIControlEventTouchUpInside];
+    [btn4 setTitle:@"%@" forState:UIControlStateNormal];
+    [self.view addSubview:btn4];
+    
+    for (int i = 0; i<5; i++) {
+         int n = random() % 4 + 1;
     
     }
--(void)setTitle:(NSString *)title forState:(UIControlState)state{
     
-}
+ 
+    }
+
 - (void)countdwontime:(NSTimer *)_timer {
     
     countDown -= 1;
@@ -131,10 +166,9 @@
                                      // アニメーションが終わった後実行する処理
                                      //もう一度のボタンを表示
                                      [self.view addSubview:onemore];
-                                     //TextField表示
-                                     
-                                     [self.view addSubview:tf];
-                                     [tf becomeFirstResponder];
+                                   
+//                                     [self.view addSubview:tf];
+//                                     [tf becomeFirstResponder];
                                  }];
 
             }];
@@ -163,62 +197,25 @@
                      } completion:^(BOOL finished) {
                          
                          [self.view addSubview:tf];
-                         [tf becomeFirstResponder];
+                         //[tf becomeFirstResponder];
                          
                          
                      }];
     
     
 }
-//Doneしたらキーボードを閉じる
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+-(void)btn:(UIButton *)button{
     
-    [textField resignFirstResponder];
+}
+-(void)btn2:(UIButton *)button{
     
-    return YES;
 }
-/*キーボードを閉じた時*/
-- (void)textFieldDidEndEditing:(UITextField *)textField
-{
-  
-    //テキストフィールドとNSStringで宣言して文字が一致した時
-    if ([textField.text isEqualToString:name]) {
-        NSLog(@"一致");
-        [tf  removeFromSuperview];
-        [onemore removeFromSuperview];
-        
-        mainview.frame = CGRectMake(self.view.frame.size.width/2 - 150,self.view.frame.size.height-600, 300,  300);
-        mainview.contentMode = UIViewContentModeScaleAspectFit;
-        mainview.alpha = 0;
-        self.view.backgroundColor = [UIColor blackColor];
+-(void)btn3:(UIButton *)button{
     
-        //5秒かけて画像を表示
-        [UIView animateWithDuration:5.0
-                         animations:^{
-                             mainview.alpha = 1.0;
-                             seikaiLabel.alpha = 1.0;
-                         }completion:^(BOOL finished){
-                            [self.view addSubview:home];
-                         }];
-        
-         
-     
-        
-    }
-   
 }
-
-
-//画面のどこかをタッチしたらキーボードを閉じる
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    [self.view.subviews enumerateObjectsUsingBlock:^(UIView* obj, NSUInteger idx, BOOL *stop) {
-        if ([obj isKindOfClass:[UITextField class]]) {
-            [obj resignFirstResponder];
-        }
-    }];
+-(void)btn4:(UIButton *)button{
+    
 }
-
 -(void)hoge:(UIButton*)button{
     [self dismissViewControllerAnimated:YES completion:nil];
 }
