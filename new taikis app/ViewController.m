@@ -32,8 +32,8 @@
     countDown = 3;
     rundomViewInt = arc4random_uniform(2);//画像をランダムで表示させるためのもの
     rundom = arc4random_uniform(4);//画像の名前表示させるためのもの
-    NSLog(@"ぬっきーは%d才",rundomViewInt);
     
+    NSLog(@"ぬっきーは%d才",rundomViewInt);
     downLabel =[[UILabel alloc]initWithFrame:
                 CGRectMake(self.view.frame.size.width/2-100, self.view.frame.size.height/2-100 ,200 ,200)];
     downLabel.textColor = [UIColor blackColor];
@@ -68,7 +68,6 @@
     btnString[1]= @"btn2";
     btnString[2]= @"btn3";
     btnString[3]= @"btn4";
-    
     
     
     
@@ -114,9 +113,7 @@
     btn2 =[[BButton alloc]initWithFrame:btn2Rect type:btn2Type];
     [btn2 addTarget:self action:@selector(btn2:) forControlEvents:UIControlEventTouchUpInside];
     [btn2 setTitle:@"%@" forState:UIControlStateNormal];
-    
-    btn2.titleLabel.text=[NSString stringWithFormat:@"%@",btnTitle1];
-    
+    btn2.titleLabel.text=[NSString stringWithFormat:@"%@",btnTitle2];
     [self.view addSubview:btn2];
     
     CGRect btn3Rect =CGRectMake(80,self.view.frame.size.height/2+140 , 215, 50);
@@ -139,6 +136,7 @@
     
  
     }
+
 
 - (void)countdwontime:(NSTimer *)_timer {
     
