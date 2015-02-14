@@ -20,11 +20,13 @@
     UIButton *onemore;
     
     int rundomViewInt ;
+    NSMutableArray *nameString;
     
     UILabel *seikaiLabel;
     NSString *imgName;
     NSString *name ;
     UIButton *home;
+    
     UIButton *btn1;
     UIButton *btn2;
     UIButton *btn3;
@@ -32,14 +34,11 @@
     int rundom;
     
     
-    NSString *nameString[4];
+  
     
-    NSString *btnString[4];
+ 
 
-    NSString *btnTitle1;
-    NSString *btnTitle2;
-    NSString *btnTitle3;
-    NSString *btnTitle4;
+    
     
     
 }

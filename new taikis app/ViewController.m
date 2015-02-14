@@ -31,9 +31,9 @@
     
     countDown = 3;
     rundomViewInt = arc4random_uniform(2);//画像をランダムで表示させるためのもの
-    rundom = arc4random_uniform(4);//画像の名前表示させるためのもの
+    NSLog(@"%d",rundomViewInt);
     
-    NSLog(@"ぬっきーは%d才",rundomViewInt);
+    
     downLabel =[[UILabel alloc]initWithFrame:
                 CGRectMake(self.view.frame.size.width/2-100, self.view.frame.size.height/2-100 ,200 ,200)];
     downLabel.textColor = [UIColor blackColor];
@@ -50,30 +50,13 @@
     
     if (rundomViewInt == 0) {
        name = @"とり";
-        nameString[0] =@"とり";
-        nameString[1] =@"ひこうき";
-        nameString[2] =@"くも";
-        nameString[3] =@"いぬ";
+        nameString = [@[@"とり", @"ひこうき", @"くも",@"ぬっきー"] mutableCopy];
         
-    }else if (rundomViewInt == 1){
-        name = @"ひこうき";
-        nameString[0] =@"とり";
-        nameString[1] =@"ひこうき";
-        nameString[2] =@"くも";
-        nameString[3] =@"いぬ";
     }
-    
-    
-    btnString[0]= @"btn1";
-    btnString[1]= @"btn2";
-    btnString[2]= @"btn3";
-    btnString[3]= @"btn4";
-    
-    
-    
-
-
-
+    if (rundomViewInt == 1){
+        name = @"ひこうき";
+        nameString =[@[@"とり", @"ひこうき", @"くも",@"ぬっきー"] mutableCopy];
+            }
     
     seikaiLabel = [[UILabel alloc]
                    initWithFrame:CGRectMake(self.view.frame.size.width/2 - 100,self.view.frame.size.height-300,200  ,100 )];
@@ -101,33 +84,48 @@
     [onemore addTarget:self
                 action:@selector(mouitido:) forControlEvents:UIControlEventTouchUpInside];
     
+    for (int i = 0; i < [nameString count];i ++) {
+        int j =arc4random() % 4;
+        [nameString exchangeObjectAtIndex:i withObjectAtIndex:j];
+       
+    }
+    
+   
+   
+   
+    
+    
+    
     CGRect btnRect =CGRectMake(80,self.view.frame.size.height/2+20, 215, 50);
     BButtonType btnType =BButtonTypeSuccess ;
     btn1 =[[BButton alloc]initWithFrame:btnRect type:btnType];
+     btn1.titleLabel.text =[NSString stringWithFormat:@"%@",nameString[0]];
     [btn1 addTarget:self action:@selector(btn:) forControlEvents:UIControlEventTouchUpInside];
-    [btn1 setTitle:@"%@" forState:UIControlStateNormal];
+    
     [self.view addSubview:btn1];
     
     CGRect btn2Rect =CGRectMake(80,self.view.frame.size.height/2+80 , 215, 50);
     BButtonType btn2Type =BButtonTypeSuccess ;
     btn2 =[[BButton alloc]initWithFrame:btn2Rect type:btn2Type];
+    btn2.titleLabel.text =[NSString stringWithFormat:@"%@",nameString[1]];
     [btn2 addTarget:self action:@selector(btn2:) forControlEvents:UIControlEventTouchUpInside];
-    [btn2 setTitle:@"%@" forState:UIControlStateNormal];
-    btn2.titleLabel.text=[NSString stringWithFormat:@"%@",btnTitle2];
+   
+   
     [self.view addSubview:btn2];
     
     CGRect btn3Rect =CGRectMake(80,self.view.frame.size.height/2+140 , 215, 50);
     BButtonType btn3Type =BButtonTypeSuccess ;
     btn3 =[[BButton alloc]initWithFrame:btn3Rect type:btn3Type];
+    btn3.titleLabel.text =[NSString stringWithFormat:@"%@",nameString[2]];
     [btn3 addTarget:self action:@selector(btn3:) forControlEvents:UIControlEventTouchUpInside];
-    [btn3 setTitle:@"%@" forState:UIControlStateNormal];
     [self.view addSubview:btn3];
     
     CGRect btn4Rect =CGRectMake(80,self.view.frame.size.height/2+200 , 215, 50);
     BButtonType btn4Type =BButtonTypeSuccess ;
     btn4 =[[BButton alloc]initWithFrame:btn4Rect type:btn4Type];
+    btn4.titleLabel.text =[NSString stringWithFormat:@"%@",nameString[3]];
+    
     [btn4 addTarget:self action:@selector(btn4:) forControlEvents:UIControlEventTouchUpInside];
-    [btn4 setTitle:@"%@" forState:UIControlStateNormal];
     [self.view addSubview:btn4];
     
 
@@ -204,17 +202,34 @@
     
     
 }
+
 -(void)btn:(UIButton *)button{
-    
+    if (name == nameString[0]) {
+        NSLog(@"正解");
+    }else{
+        NSLog(@"不正解");
+    }
 }
 -(void)btn2:(UIButton *)button{
-    
+    if (name ==nameString[1]) {
+        NSLog(@"正解");
+    }else{
+        NSLog(@"不正解");
+    }
 }
 -(void)btn3:(UIButton *)button{
-    
+    if (name == nameString[2]) {
+        NSLog(@"正解");
+    }else {
+        NSLog(@"不正解");
+    }
 }
 -(void)btn4:(UIButton *)button{
-    
+    if (name == nameString[3]) {
+        NSLog(@"正解");
+    }else{
+        NSLog(@"不正解");
+    }
 }
 
 -(void)hoge:(UIButton*)button{
