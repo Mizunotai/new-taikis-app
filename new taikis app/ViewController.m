@@ -69,13 +69,15 @@
     [self.view addSubview:seikaiLabel];
     seikaiLabel.alpha = 0 ;
     label.alpha = 0;
+    
     BButtonType type = BButtonTypeSuccess;
     CGRect frame = CGRectMake(150,500,100,60);
     home=[[BButton alloc]initWithFrame:frame type:type];
     [home setTitle:@"ホームへ" forState:UIControlStateNormal];
     [home addTarget:self
             action:@selector(hoge:) forControlEvents:UIControlEventTouchUpInside];
-   
+    [self.view addSubview:home];
+    home.alpha = 0;
     
     CGRect onemoreFrame =CGRectMake(112, 160, 155, 55);
     BButtonType onemoreType = BButtonTypeWarning;
@@ -84,6 +86,7 @@
     [onemore addTarget:self
                 action:@selector(mouitido:) forControlEvents:UIControlEventTouchUpInside];
     
+   /*  nameStringの中身をランダムに変更 　*/
     for (int i = 0; i < [nameString count];i ++) {
         int j =arc4random() % 4;
         [nameString exchangeObjectAtIndex:i withObjectAtIndex:j];
@@ -95,38 +98,34 @@
    
     
     
-    
+    /* 一つ目のボタン */
     CGRect btnRect =CGRectMake(80,self.view.frame.size.height/2+20, 215, 50);
     BButtonType btnType =BButtonTypeSuccess ;
     btn1 =[[BButton alloc]initWithFrame:btnRect type:btnType];
-     btn1.titleLabel.text =[NSString stringWithFormat:@"%@",nameString[0]];
+    [btn1 setTitle: [NSString stringWithFormat:@"%@",nameString[0]]  forState:UIControlStateNormal];
     [btn1 addTarget:self action:@selector(btn:) forControlEvents:UIControlEventTouchUpInside];
     
-    [self.view addSubview:btn1];
-    
+    /*　２つ目のボタン　*/
     CGRect btn2Rect =CGRectMake(80,self.view.frame.size.height/2+80 , 215, 50);
     BButtonType btn2Type =BButtonTypeSuccess ;
     btn2 =[[BButton alloc]initWithFrame:btn2Rect type:btn2Type];
-    btn2.titleLabel.text =[NSString stringWithFormat:@"%@",nameString[1]];
+    [btn2 setTitle: [NSString stringWithFormat:@"%@",nameString[1]]  forState:UIControlStateNormal];
     [btn2 addTarget:self action:@selector(btn2:) forControlEvents:UIControlEventTouchUpInside];
    
-   
-    [self.view addSubview:btn2];
-    
+    /* 三つ目もボタン */
     CGRect btn3Rect =CGRectMake(80,self.view.frame.size.height/2+140 , 215, 50);
     BButtonType btn3Type =BButtonTypeSuccess ;
     btn3 =[[BButton alloc]initWithFrame:btn3Rect type:btn3Type];
-    btn3.titleLabel.text =[NSString stringWithFormat:@"%@",nameString[2]];
+    [btn3 setTitle: [NSString stringWithFormat:@"%@",nameString[2]]  forState:UIControlStateNormal];
     [btn3 addTarget:self action:@selector(btn3:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:btn3];
     
+    /*　四つ目のボタン　*/
     CGRect btn4Rect =CGRectMake(80,self.view.frame.size.height/2+200 , 215, 50);
     BButtonType btn4Type =BButtonTypeSuccess ;
     btn4 =[[BButton alloc]initWithFrame:btn4Rect type:btn4Type];
-    btn4.titleLabel.text =[NSString stringWithFormat:@"%@",nameString[3]];
-    
+    [btn4 setTitle: [NSString stringWithFormat:@"%@",nameString[3]]  forState:UIControlStateNormal];
     [btn4 addTarget:self action:@selector(btn4:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:btn4];
+    
     
 
     
@@ -145,8 +144,7 @@
     
         label.alpha = 1;
         downLabel.hidden = YES;
-    
-    
+        
             [UIView animateWithDuration:0.8f
                              animations:^{
                                  label.alpha = 0;
@@ -165,9 +163,13 @@
                                      // アニメーションが終わった後実行する処理
                                      //もう一度のボタンを表示
                                      [self.view addSubview:onemore];
+                                     
+                                     [self.view addSubview:btn1];
+                                     [self.view addSubview:btn2];
+                                     [self.view addSubview:btn3];
+                                     [self.view addSubview:btn4];
+                                     
                                    
-//                                     [self.view addSubview:tf];
-//                                     [tf becomeFirstResponder];
                                  }];
 
             }];
@@ -195,7 +197,6 @@
                          // アニメーションをする処理
                      } completion:^(BOOL finished) {
                          
-                                                 //[tf becomeFirstResponder];
                          
                          
                      }];
@@ -206,6 +207,29 @@
 -(void)btn:(UIButton *)button{
     if (name == nameString[0]) {
         NSLog(@"正解");
+        self.view.backgroundColor =[UIColor blackColor];
+        mainview.frame = CGRectMake(self.view.frame.size.width/2 - 150,self.view.frame.size.height-600, 300,  300);
+        mainview.contentMode = UIViewContentModeScaleAspectFit;
+        mainview.alpha = 0;
+
+        [UIView animateWithDuration:3
+                         animations:^{
+                             mainview.alpha = 1.0;
+                             seikaiLabel.alpha = 1.0;
+                             home.alpha = 1.0;
+                             
+                         }completion:^(BOOL finished){
+                             
+                         
+                             
+                         }];
+        [onemore removeFromSuperview];
+        [btn1 removeFromSuperview];
+        [btn2 removeFromSuperview];
+        [btn3 removeFromSuperview];
+        [btn4 removeFromSuperview];
+        
+        
     }else{
         NSLog(@"不正解");
     }
@@ -213,6 +237,30 @@
 -(void)btn2:(UIButton *)button{
     if (name ==nameString[1]) {
         NSLog(@"正解");
+        mainview.frame = CGRectMake(self.view.frame.size.width/2 - 150,self.view.frame.size.height-600, 300,  300);
+        mainview.contentMode = UIViewContentModeScaleAspectFit;
+        mainview.alpha = 0;
+
+        [onemore removeFromSuperview];
+        [btn1 removeFromSuperview];
+        [btn2 removeFromSuperview];
+        [btn3 removeFromSuperview];
+        [btn4 removeFromSuperview];
+        self.view.backgroundColor =[UIColor blackColor];
+        
+        [UIView animateWithDuration:3
+                         animations:^{
+                             mainview.alpha = 1.0;
+                             seikaiLabel.alpha = 1.0;
+                             home.alpha = 1.0;
+                             
+                         }completion:^(BOOL finished){
+                             
+                             
+                             
+                         }];
+
+        
     }else{
         NSLog(@"不正解");
     }
@@ -220,6 +268,29 @@
 -(void)btn3:(UIButton *)button{
     if (name == nameString[2]) {
         NSLog(@"正解");
+        mainview.frame = CGRectMake(self.view.frame.size.width/2 - 150,self.view.frame.size.height-600, 300,  300);
+        mainview.contentMode = UIViewContentModeScaleAspectFit;
+        mainview.alpha = 0;
+
+        [onemore removeFromSuperview];
+        [btn1 removeFromSuperview];
+        [btn2 removeFromSuperview];
+        [btn3 removeFromSuperview];
+        [btn4 removeFromSuperview];
+        self.view.backgroundColor =[UIColor blackColor];
+        
+        [UIView animateWithDuration:3
+                         animations:^{
+                             mainview.alpha = 1.0;
+                             seikaiLabel.alpha = 1.0;
+                             home.alpha = 1.0;
+                             
+                         }completion:^(BOOL finished){
+                             
+                             
+                             
+                         }];
+
     }else {
         NSLog(@"不正解");
     }
@@ -227,6 +298,30 @@
 -(void)btn4:(UIButton *)button{
     if (name == nameString[3]) {
         NSLog(@"正解");
+        mainview.frame = CGRectMake(self.view.frame.size.width/2 - 150,self.view.frame.size.height-600, 300,  300);
+        mainview.contentMode = UIViewContentModeScaleAspectFit;
+        mainview.alpha = 0;
+
+        [onemore removeFromSuperview];
+        
+        [btn1 removeFromSuperview];
+        [btn2 removeFromSuperview];
+        [btn3 removeFromSuperview];
+        [btn4 removeFromSuperview];
+        self.view.backgroundColor =[UIColor blackColor];
+        
+        [UIView animateWithDuration:3
+                         animations:^{
+                             mainview.alpha = 1.0;
+                             seikaiLabel.alpha = 1.0;
+                             home.alpha = 1.0;
+                             
+                         }completion:^(BOOL finished){
+                             
+                             
+                             
+                         }];
+
     }else{
         NSLog(@"不正解");
     }
