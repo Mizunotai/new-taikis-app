@@ -27,9 +27,14 @@
 }
 -(IBAction)idou:(id)sender{
     UIViewController *viewController = [[ViewController alloc] init];
-    viewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    viewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
     [self presentViewController:viewController animated:YES completion:nil];
 
+}
+-(IBAction)color:(id)sender{
+    UIViewController *viewController = [[ColorViewController alloc]init];
+    viewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+    [self presentViewController:viewController animated:YES completion:nil];
 }
 /*
 #pragma mark - Navigation

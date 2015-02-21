@@ -9,7 +9,7 @@
 //#import "ViewController.h"
 #import "BButton.h"
 #import "ViewController.h"
-
+#import "ColorViewController.h"
 @interface HomeViewController : UIViewController{
     
 }

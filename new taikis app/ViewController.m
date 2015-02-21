@@ -17,6 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view, typically from a nib.
     
     
@@ -152,7 +153,7 @@
                 [self.view addSubview:mainview];
                 
                 
-                [UIView animateWithDuration:0.8f // アニメーション速度2.5秒
+                [UIView animateWithDuration:0.1f // アニメーション速度2.5秒
                                       delay:0.0f // 1秒後にアニメーション
                                     options:UIViewAnimationOptionCurveEaseIn
                                  animations:^{
@@ -186,7 +187,7 @@
     
     
     
-    [UIView animateWithDuration:0.8f // アニメーション速度2.5秒
+    [UIView animateWithDuration:0.1f // アニメーション速度2.5秒
                           delay:0.0f // 1秒後にアニメーション
                         options:UIViewAnimationOptionCurveEaseIn
                      animations:^{

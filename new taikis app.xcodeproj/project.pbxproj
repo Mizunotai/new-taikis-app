@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B60C59531A9875F7006D7FBA /* ColorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B60C59521A9875F7006D7FBA /* ColorViewController.m */; };
 		B6513B661A85B05B00D441A3 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6513B641A85B05B00D441A3 /* HomeViewController.m */; };
 		B6513B671A85B05B00D441A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6513B651A85B05B00D441A3 /* Main.storyboard */; };
 		B67ABF661A7B847C0099F19E /* BButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B67ABF5F1A7B847C0099F19E /* BButton.m */; };
@@ -34,6 +35,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B60C59511A9875F7006D7FBA /* ColorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorViewController.h; sourceTree = "<group>"; };
+		B60C59521A9875F7006D7FBA /* ColorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorViewController.m; sourceTree = "<group>"; };
 		B6513B631A85B05B00D441A3 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = SOURCE_ROOT; };
 		B6513B641A85B05B00D441A3 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = SOURCE_ROOT; };
 		B6513B651A85B05B00D441A3 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = SOURCE_ROOT; };
@@ -132,6 +135,8 @@
 				B6513B651A85B05B00D441A3 /* Main.storyboard */,
 				B689EC3D1A611495000A6E11 /* ViewController.h */,
 				B689EC3E1A611495000A6E11 /* ViewController.m */,
+				B60C59511A9875F7006D7FBA /* ColorViewController.h */,
+				B60C59521A9875F7006D7FBA /* ColorViewController.m */,
 				B689EC431A611495000A6E11 /* Images.xcassets */,
 				B689EC451A611495000A6E11 /* LaunchScreen.xib */,
 				B689EC361A611495000A6E11 /* Supporting Files */,
@@ -275,6 +280,7 @@
 				B67ABF671A7B847C0099F19E /* NSString+FontAwesome.m in Sources */,
 				B689EC3C1A611495000A6E11 /* AppDelegate.m in Sources */,
 				B689EC391A611495000A6E11 /* main.m in Sources */,
+				B60C59531A9875F7006D7FBA /* ColorViewController.m in Sources */,
 				B6513B661A85B05B00D441A3 /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
