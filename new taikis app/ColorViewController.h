@@ -7,12 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "BButton.h"
 @interface ColorViewController : UIViewController{
     
     UILabel *idouLabel;
     int countDwon;
     NSTimer * timer;
+    UIButton *btn1;
+    UIButton *btn2;
+    UIButton *btn3;
+    UIButton *btn4;
+    NSString *colorName;
+    NSMutableArray *colorNamesArray;
 }
 
 @end
