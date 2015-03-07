@@ -16,12 +16,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+   
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
     
     idouLabel =[[UILabel alloc]initWithFrame:CGRectMake(350,200, 100,  100)];
     
-    int num = arc4random()%4;
+    
+    num = arc4random()%4;
     NSLog(@"%d",num);
     switch (num) {
             
@@ -56,14 +59,17 @@
                                             selector:@selector(time:)
                                             userInfo:nil
                                              repeats:YES];
-
+   
     countDwon = 1;
+    totalProblem =10;
+    currentProblem = 0;
     
     for (int i; i <[colorNamesArray count]; i++) {
         int j = arc4random()%4;
         [colorNamesArray exchangeObjectAtIndex:i withObjectAtIndex:j];
     }
-
+   
+    
     
     /* 一つ目のボタン */
     CGRect btnRect =CGRectMake(80,self.view.frame.size.height/2+20, 215, 50);
@@ -125,33 +131,70 @@
 -(void)btn:(UIButton *)button{
     if (colorName == colorNamesArray[0]) {
         NSLog(@"正解" );
+        correctAnswers ++;
     }else {
         NSLog(@"不正解");
     }
+    
+    [self nextProblem];
 }
 
 -(void)btn2:(UIButton *)button{
     if (colorName == colorNamesArray[1]) {
         NSLog(@"正解");
+        correctAnswers ++;
     }else{
         NSLog(@"不正解");
     }
-    
+    [self nextProblem];
 }
 
 -(void)btn3:(UIButton *)button{
     if (colorName == colorNamesArray[2]) {
         NSLog(@" 正解");
+        correctAnswers++;
     }else{
         NSLog(@"不正解");
     }
+    [self nextProblem];
 }
 
 -(void)btn4:(UIButton *)button{
     if (colorName == colorNamesArray[3]) {
         NSLog(@"正解");
+        correctAnswers++ ;
     }else{
         NSLog(@"不正解");
+    }
+    [self nextProblem];
+}
+-(void)nextProblem {
+    if ( totalProblem > currentProblem){
+        
+        currentProblem ++ ;
+        num = arc4random()%4;
+        NSLog(@"%dだ",num);
+        
+        idouLabel.frame = CGRectMake(350,200, 100,  100);
+        [self.view addSubview:idouLabel];
+        
+        [UIView animateWithDuration:0.1
+                              delay:0.0f
+                            options:UIViewAnimationOptionCurveEaseIn
+                        animations:^{
+                             CGAffineTransform translate = CGAffineTransformMakeTranslation(-450*2, 0);
+                             [idouLabel setTransform:translate];
+                             
+                         }completion:^(BOOL finish){
+                             [self.view addSubview:btn1];
+                             [self.view addSubview:btn2];
+                             [self.view addSubview:btn3];
+                             [self.view addSubview:btn4];
+                             
+                             
+                         }];
+
+
     }
 }
 /*

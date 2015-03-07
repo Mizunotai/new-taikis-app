@@ -31,7 +31,7 @@
                                                       repeats:YES];
     
     countDown = 3;
-    rundomViewInt = arc4random_uniform(2);//画像をランダムで表示させるためのもの
+    rundomViewInt = arc4random_uniform(18);//画像をランダムで表示させるためのもの
     NSLog(@"%d",rundomViewInt);
     
     
@@ -43,7 +43,7 @@
     downLabel.text =[NSString stringWithFormat:@"%d",countDown];
     [self.view addSubview:downLabel];
     imgName = [NSString stringWithFormat:@"pico%d.png",rundomViewInt];
-    
+
     img = [UIImage imageNamed:imgName];
     mainview = [[UIImageView alloc] initWithImage:img];
     mainview.frame = CGRectMake(350,200, 100,  100);
@@ -94,9 +94,6 @@
        
     }
     
-   
-   
-   
     
     
     /* 一つ目のボタン */
@@ -327,7 +324,6 @@
         NSLog(@"不正解");
     }
 }
-
 -(void)hoge:(UIButton*)button{
     [self dismissViewControllerAnimated:YES completion:nil];
 }

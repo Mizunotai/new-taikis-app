@@ -19,6 +19,13 @@
     UIButton *btn4;
     NSString *colorName;
     NSMutableArray *colorNamesArray;
+    int num ;
+    int totalProblem;//出題する問題の数
+    //現在の進捗（出題済み問題数）を記録
+    int currentProblem;
+    
+    //正答数
+    int correctAnswers;
 }
 
 @end

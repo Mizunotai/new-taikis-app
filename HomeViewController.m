@@ -25,6 +25,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 -(IBAction)idou:(id)sender{
     UIViewController *viewController = [[ViewController alloc] init];
     viewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
