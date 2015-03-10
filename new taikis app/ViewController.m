@@ -31,7 +31,7 @@
                                                       repeats:YES];
     
     countDown = 3;
-    rundomViewInt = arc4random_uniform(18);//画像をランダムで表示させるためのもの
+    rundomViewInt = arc4random_uniform(2);//画像をランダムで表示させるためのもの
     NSLog(@"%d",rundomViewInt);
     
     
@@ -57,7 +57,7 @@
     if (rundomViewInt == 1){
         name = @"ひこうき";
         nameString =[@[@"とり", @"ひこうき", @"くも",@"ぬっきー"] mutableCopy];
-            }
+    }
     
     seikaiLabel = [[UILabel alloc]
                    initWithFrame:CGRectMake(self.view.frame.size.width/2 - 100,self.view.frame.size.height-300,200  ,100 )];

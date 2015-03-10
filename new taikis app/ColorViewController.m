@@ -168,23 +168,60 @@
     }
     [self nextProblem];
 }
+
+
+
 -(void)nextProblem {
     if ( totalProblem > currentProblem){
         
         currentProblem ++ ;
         num = arc4random()%4;
         NSLog(@"%dだ",num);
-        
+        switch (num) {
+                
+            case 0:
+                idouLabel.backgroundColor = [UIColor redColor];
+                NSLog(@"赤");
+                colorName =@"赤色" ;
+                colorNamesArray =[@[@"赤色",@"黄色",@"青色",@"緑色"]mutableCopy];
+                break;
+            case 1:
+                idouLabel.backgroundColor = [UIColor yellowColor];
+                NSLog(@"黄");
+                colorName =@"黄色" ;
+                colorNamesArray =[@[@"赤色",@"黄色",@"青色",@"緑色"]mutableCopy];
+                break;
+            case 2:
+                idouLabel.backgroundColor = [UIColor blueColor];
+                NSLog(@"青");
+                colorName =@"青色" ;
+                colorNamesArray =[@[@"赤色",@"黄色",@"青色",@"緑色"]mutableCopy];
+                break;
+            case 3:
+                idouLabel.backgroundColor = [UIColor greenColor];
+                NSLog(@"緑");
+                colorName =@"緑色" ;
+                colorNamesArray =[@[@"赤色",@"黄色",@"青色",@"緑色"]mutableCopy];
+                break;
+        }
+
         idouLabel.frame = CGRectMake(350,200, 100,  100);
         [self.view addSubview:idouLabel];
         
-        [UIView animateWithDuration:0.1
+        
+                    [UIView animateWithDuration:0.1
                               delay:0.0f
                             options:UIViewAnimationOptionCurveEaseIn
                         animations:^{
-                             CGAffineTransform translate = CGAffineTransformMakeTranslation(-450*2, 0);
+                            if (currentProblem == 1) {
+                                CGAffineTransform translate = CGAffineTransformMakeTranslation(-450*2, 0);
+                                [idouLabel setTransform:translate];
+                                currentProblem ++;
+                            }else{
+                             CGAffineTransform translate = CGAffineTransformMakeTranslation(-450*currentProblem, 0);
                              [idouLabel setTransform:translate];
-                             
+                                }
+                            NSLog(@"%dだよ",currentProblem);
                          }completion:^(BOOL finish){
                              [self.view addSubview:btn1];
                              [self.view addSubview:btn2];
@@ -196,6 +233,8 @@
 
 
     }
+    
+    
 }
 /*
 #pragma mark - Navigation
