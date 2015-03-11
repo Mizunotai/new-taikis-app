@@ -232,9 +232,31 @@
                          }];
 
 
-    }
+    }else{
+        [btn1 removeFromSuperview];
+        [btn2 removeFromSuperview];
+        [btn3 removeFromSuperview];
+        [btn4 removeFromSuperview];
+        
+        UILabel *label =[[UILabel alloc]initWithFrame:CGRectMake(0, 198, 365, 163)];
+        label.text =[NSString stringWithFormat:@"十問中%d問正解",correctAnswers];
+        label.textAlignment = NSTextAlignmentCenter;
+        label.textColor = [UIColor blackColor];
+        label.font = [UIFont boldSystemFontOfSize:40];
+        [self.view addSubview:label];
+        
+        CGRect backBtnRect =CGRectMake(80,self.view.frame.size.height/2+200 , 215, 50);
+        BButtonType backBtnType =BButtonTypeSuccess ;
+        UIButton *backbtn =[[BButton alloc]initWithFrame:backBtnRect type:backBtnType];
+        [backbtn setTitle: @"ホームへ"  forState:UIControlStateNormal];
+        [backbtn addTarget:self action:@selector(backbtton:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:backbtn];
+        }
     
     
+}
+-(void)backbtton:(UIButton *)button{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 /*
 #pragma mark - Navigation
