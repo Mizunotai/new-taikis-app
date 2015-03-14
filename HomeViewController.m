@@ -37,6 +37,11 @@
     viewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
     [self presentViewController:viewController animated:YES completion:nil];
 }
+-(IBAction)tach:(id)sender{
+    UIViewController *viewController = [[TachViewController alloc]init];
+    viewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+    [self presentViewController:viewController animated:YES completion:nil];
+}
 /*
 #pragma mark - Navigation
 

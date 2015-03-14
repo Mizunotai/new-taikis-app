@@ -32,6 +32,7 @@
     
     countDown = 3;
     rundomViewInt = arc4random_uniform(2);//画像をランダムで表示させるためのもの
+
     NSLog(@"%d",rundomViewInt);
     
     
@@ -46,7 +47,7 @@
 
     img = [UIImage imageNamed:imgName];
     mainview = [[UIImageView alloc] initWithImage:img];
-    mainview.frame = CGRectMake(350,200, 100,  100);
+    mainview.frame = CGRectMake(350,200, 200,  200);
     mainview.contentMode = UIViewContentModeScaleAspectFit;
     
     if (rundomViewInt == 0) {
@@ -80,12 +81,12 @@
     [self.view addSubview:home];
     home.alpha = 0;
     
-    CGRect onemoreFrame =CGRectMake(112, 160, 155, 55);
-    BButtonType onemoreType = BButtonTypeWarning;
-    onemore =[[BButton alloc]initWithFrame:onemoreFrame type:onemoreType];
-    [onemore setTitle:@"もう一度" forState:UIControlStateNormal];
-    [onemore addTarget:self
-                action:@selector(mouitido:) forControlEvents:UIControlEventTouchUpInside];
+//    CGRect onemoreFrame =CGRectMake(112, 160, 155, 55);
+//    BButtonType onemoreType = BButtonTypeWarning;
+//    onemore =[[BButton alloc]initWithFrame:onemoreFrame type:onemoreType];
+//    [onemore setTitle:@"もう一度" forState:UIControlStateNormal];
+//    [onemore addTarget:self
+//                action:@selector(mouitido:) forControlEvents:UIControlEventTouchUpInside];
     
    /*  nameStringの中身をランダムに変更 　*/
     for (int i = 0; i < [nameString count];i ++) {
@@ -150,11 +151,11 @@
                 [self.view addSubview:mainview];
                 
                 
-                [UIView animateWithDuration:0.1f // アニメーション速度2.5秒
+                [UIView animateWithDuration:0.3f // アニメーション速度2.5秒
                                       delay:0.0f // 1秒後にアニメーション
                                     options:UIViewAnimationOptionCurveEaseIn
                                  animations:^{
-                                     CGAffineTransform translate = CGAffineTransformMakeTranslation(-445, 0);
+                                     CGAffineTransform translate = CGAffineTransformMakeTranslation(-545, 0);
                                      [mainview setTransform:translate];
                                      // アニメーションをする処理
                                  } completion:^(BOOL finished) {
@@ -174,33 +175,33 @@
         }
     
 }
--(void)mouitido:(UIButton *)button{
-   
-    mainview.frame = CGRectMake(350,200, 100,  100);
-    mainview.contentMode = UIViewContentModeScaleAspectFit;
-
-    [self.view addSubview:mainview];
-    onemore.hidden = YES;
-    
-    
-    
-    [UIView animateWithDuration:0.1f // アニメーション速度2.5秒
-                          delay:0.0f // 1秒後にアニメーション
-                        options:UIViewAnimationOptionCurveEaseIn
-                     animations:^{
-                         
-                        
-                          CGAffineTransform translate = CGAffineTransformMakeTranslation(-890, 0);
-                         [mainview setTransform:translate];
-                         // アニメーションをする処理
-                     } completion:^(BOOL finished) {
-                         
-                         
-                         
-                     }];
-    
-    
-}
+//-(void)mouitido:(UIButton *)button{
+//   
+//    mainview.frame = CGRectMake(350,200, 200,  200);
+//    mainview.contentMode = UIViewContentModeScaleAspectFit;
+//
+//    [self.view addSubview:mainview];
+//    onemore.hidden = YES;
+//    
+//    
+//    
+//    [UIView animateWithDuration:0.3f // アニメーション速度2.5秒
+//                          delay:0.0f // 1秒後にアニメーション
+//                        options:UIViewAnimationOptionCurveEaseIn
+//                     animations:^{
+//                         
+//                        
+//                          CGAffineTransform translate = CGAffineTransformMakeTranslation(-90, 0);
+//                         [mainview setTransform:translate];
+//                         // アニメーションをする処理
+//                     } completion:^(BOOL finished) {
+//                         
+//                         
+//                         
+//                     }];
+//    
+//    
+//}
 
 -(void)btn:(UIButton *)button{
     if (name == nameString[0]) {
@@ -317,7 +318,7 @@
                          }completion:^(BOOL finished){
                              
                              
-                             
+                        
                          }];
 
     }else{

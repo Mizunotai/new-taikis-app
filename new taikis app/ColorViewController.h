@@ -27,6 +27,7 @@
     
     //正答数
     int correctAnswers;
+    UILabel *downLabel;
 }
 
 @end

@@ -21,7 +21,7 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
     
-    idouLabel =[[UILabel alloc]initWithFrame:CGRectMake(350,200, 100,  100)];
+    idouLabel =[[UILabel alloc]initWithFrame:CGRectMake(450,200, 100,  100)];
     
     
     num = arc4random()%4;
@@ -53,14 +53,22 @@
             colorNamesArray =[@[@"赤色",@"黄色",@"青色",@"緑色"]mutableCopy];
             break;
     }
-    
-        timer =[NSTimer   scheduledTimerWithTimeInterval:1
+    countDwon = 3;
+    downLabel =[[UILabel alloc]initWithFrame:
+                CGRectMake(self.view.frame.size.width/2-100, self.view.frame.size.height/2-100 ,200 ,200)];
+    downLabel.textColor = [UIColor blackColor];
+    downLabel.font =[UIFont boldSystemFontOfSize:200];
+    downLabel.textAlignment = NSTextAlignmentCenter;
+    downLabel.text =[NSString stringWithFormat:@"%d",countDwon];
+    [self.view addSubview:downLabel];
+
+    timer =[NSTimer   scheduledTimerWithTimeInterval:1
                                               target:self
                                             selector:@selector(time:)
                                             userInfo:nil
                                              repeats:YES];
    
-    countDwon = 1;
+   
     totalProblem =10;
     currentProblem = 0;
     
@@ -99,17 +107,17 @@
     [btn4 addTarget:self action:@selector(btn4:) forControlEvents:UIControlEventTouchUpInside];
 }
 -(void)time:(NSTimer *)time{
-  countDwon -= 1;
-   
+    countDwon -= 1;
+    downLabel .text = [NSString stringWithFormat:@"%d",countDwon];
     if (countDwon == 0){
         NSLog(@"%d",countDwon);
         [self.view addSubview:idouLabel];
-        
+        [downLabel removeFromSuperview];
         [UIView animateWithDuration:0.1
                               delay:0.0f
                             options:UIViewAnimationOptionCurveEaseIn
                          animations:^{
-                             CGAffineTransform translate = CGAffineTransformMakeTranslation(-450, 0);
+                             CGAffineTransform translate = CGAffineTransformMakeTranslation(-550, 0);
                              [idouLabel setTransform:translate];
                              
                          }completion:^(BOOL finish){
@@ -205,20 +213,20 @@
                 break;
         }
 
-        idouLabel.frame = CGRectMake(350,200, 100,  100);
+        idouLabel.frame = CGRectMake(450,200, 100,  100);
         [self.view addSubview:idouLabel];
         
         
                     [UIView animateWithDuration:0.1
-                              delay:0.0f
+                              delay:0.5f
                             options:UIViewAnimationOptionCurveEaseIn
                         animations:^{
                             if (currentProblem == 1) {
-                                CGAffineTransform translate = CGAffineTransformMakeTranslation(-450*2, 0);
+                                CGAffineTransform translate = CGAffineTransformMakeTranslation(-550*2, 0);
                                 [idouLabel setTransform:translate];
                                 currentProblem ++;
                             }else{
-                             CGAffineTransform translate = CGAffineTransformMakeTranslation(-450*currentProblem, 0);
+                             CGAffineTransform translate = CGAffineTransformMakeTranslation(-550*currentProblem, 0);
                              [idouLabel setTransform:translate];
                                 }
                             NSLog(@"%dだよ",currentProblem);
@@ -239,7 +247,7 @@
         [btn4 removeFromSuperview];
         
         UILabel *label =[[UILabel alloc]initWithFrame:CGRectMake(0, 198, 365, 163)];
-        label.text =[NSString stringWithFormat:@"十問中%d問正解",correctAnswers];
+        label.text =[NSString stringWithFormat:@"10問中%d問正解",correctAnswers];
         label.textAlignment = NSTextAlignmentCenter;
         label.textColor = [UIColor blackColor];
         label.font = [UIFont boldSystemFontOfSize:40];

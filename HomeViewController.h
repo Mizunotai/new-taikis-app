@@ -10,6 +10,7 @@
 #import "BButton.h"
 #import "ViewController.h"
 #import "ColorViewController.h"
+#import "TachViewController.h"
 @interface HomeViewController : UIViewController{
     
 }
