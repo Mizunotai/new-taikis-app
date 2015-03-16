@@ -21,10 +21,11 @@
     // Do any additional setup after loading the view.
     
     self.view.backgroundColor = [UIColor whiteColor];
-    CGRect appframe = [[UIScreen mainScreen] applicationFrame];
+   
     
     
-    UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(150,550, 130, 130)];
+    
+   // UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(150,550, 130, 130)];
     
     time =0.0;
     timer = [NSTimer scheduledTimerWithTimeInterval:0.01
@@ -33,21 +34,31 @@
                                            userInfo:nil
                                             repeats:YES];
    
-    
-    label= [[UILabel alloc]initWithFrame:CGRectMake(0,0, 100,  100)];
-   
-    
-    self.view.backgroundColor = [UIColor blackColor];
-    [self.view addSubview:label];
-    speed = appframe.size.height /2 ;
+    CGRect appframe = [[UIScreen mainScreen] applicationFrame];
+    label= [[UILabel alloc]initWithFrame:CGRectMake(appframe.size.width/2-25,0, 50,  50)];
+    label.backgroundColor =[UIColor blackColor];
+   [self.view addSubview:label];
+//    speed = appframe.size.width /2 ;
     
 }
 -(void)up{
     time += 0.01;
-    
-    if (10.0 - 1.2 <= time) {
-        float y = (time -10.0 + 1.2) * speed -75;
-        label.frame = CGRectMake(135, y,100 , 100);
+    NSLog(@"%f",time);
+    if (time > 10.0) {
+        [UIView animateWithDuration:0.3f // アニメーション速度2.5秒
+                              delay:0.0f // 1秒後にアニメーション
+                            options:UIViewAnimationOptionCurveEaseIn
+                         animations:^{
+                             CGAffineTransform translate = CGAffineTransformMakeTranslation(0,300);
+                             [label setTransform:translate];
+                             // アニメーションをする処理
+                         } completion:^(BOOL finished) {
+                            
+                             
+                             
+                         }];
+
+        
     }
     
 }
