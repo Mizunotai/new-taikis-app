@@ -18,4 +18,6 @@
     UIButton*button;
 }
 -(void)up;
+-(void)button;
+-(NSString *)hantei:(float)number;
 @end

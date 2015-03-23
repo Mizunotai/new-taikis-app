@@ -45,7 +45,7 @@
 }
 -(void)up{
     time += 0.01;
-    NSLog(@"%f",time);
+//    NSLog(@"%f",time);
     
     if (time > 3.0) {
         [UIView animateWithDuration:0.3f // アニメーション速度2.5秒
@@ -65,8 +65,26 @@
     }
     
 }
--(void)button {
+- (NSString *)hantei:(float)number{
     
+    if(time >= number - 0.05 && time <= number + 0.05)
+    {
+        NSLog(@"パーフェクト");
+        return @"PERFECT!!" ;
+    }else if(time >=number -0.10 && time <= number + 0.10){
+        NSLog(@"グレイト");
+        return @"GREAT!" ;
+        
+    }else if(time >= number - 0.15 && time <= number + 0.15) {
+        NSLog(@"グッド");
+        return @"GOOD" ;
+    }else{
+        NSLog(@"パッド");
+        return @"BAD" ;
+    }
+}
+-(void)button {
+    [self hantei:3.0];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
