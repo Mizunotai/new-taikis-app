@@ -14,8 +14,7 @@
 
 @implementation TachViewController{
     int hanteicount ;
-   
-}
+   }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -45,7 +44,7 @@
     button.backgroundColor = [UIColor redColor];
     [button addTarget:self action:@selector(button) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
-    hanteicount = 2.0;
+    hanteicount = 2;
     
     
     
@@ -57,7 +56,7 @@
     
     CGRect appframe = [[UIScreen mainScreen] applicationFrame];
  
-    if (time % 3 == 0 ) {
+    if (time % 1 == 0 ) {
         
         label.frame =CGRectMake(appframe.size.width/2-25,-50, 50, 50);
         [self.view addSubview:label];
@@ -67,11 +66,11 @@
                               delay:0.0f // 1秒後にアニメーション
                             options:UIViewAnimationOptionCurveEaseIn
                          animations:^{
-                             CGAffineTransform translate = CGAffineTransformMakeTranslation(0,900);
+                             CGAffineTransform translate = CGAffineTransformMakeTranslation(0,900*hanteicount);
                              [label setTransform:translate];
                              // アニメーションをする処理
                          } completion:^(BOOL finished) {
-                            
+                            hanteicount ++;
                              
                              
                          }];
@@ -108,8 +107,13 @@
     float sa = (label.layer.position.y - button.layer.position.y);
     if (sa == 0) {
         NSLog(@"パーフェクト");
+        [label removeFromSuperview];
+    }
+    if (sa+0.15 && sa+-0.15){
+        NSLog(@"グレート");
+        
     }else {
-        NSLog(@"その他");
+        NSLog(@"だめ");
     }
 }
 - (void)didReceiveMemoryWarning {
