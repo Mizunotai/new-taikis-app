@@ -12,7 +12,10 @@
 
 @end
 
-@implementation TachViewController
+@implementation TachViewController{
+    int hanteicount ;
+   
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -26,15 +29,15 @@
     
     
    // UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(150,550, 130, 130)];
-       time =0.0;
-    timer = [NSTimer scheduledTimerWithTimeInterval:0.01
+       time =1;
+    timer = [NSTimer scheduledTimerWithTimeInterval:1
                                              target:self
                                            selector:@selector(up)
                                            userInfo:nil
                                             repeats:YES];
    
     CGRect appframe = [[UIScreen mainScreen] applicationFrame];
-    label= [[UILabel alloc]initWithFrame:CGRectMake(appframe.size.width/2-25,0, 50,  50)];
+    label= [[UILabel alloc]initWithFrame:CGRectMake(appframe.size.width/2-25,-50, 50,  50)];
     label.backgroundColor =[UIColor blackColor];
     [self.view addSubview:label];
 
@@ -42,12 +45,24 @@
     button.backgroundColor = [UIColor redColor];
     [button addTarget:self action:@selector(button) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
-}
--(void)up{
-    time += 0.01;
-//    NSLog(@"%f",time);
+    hanteicount = 2.0;
     
-    if (time > 3.0) {
+    
+    
+}
+
+    
+-(void)up{
+    time += 1;
+    
+    CGRect appframe = [[UIScreen mainScreen] applicationFrame];
+ 
+    if (time % 3 == 0 ) {
+        
+        label.frame =CGRectMake(appframe.size.width/2-25,-50, 50, 50);
+        [self.view addSubview:label];
+        
+        
         [UIView animateWithDuration:0.3f // アニメーション速度2.5秒
                               delay:0.0f // 1秒後にアニメーション
                             options:UIViewAnimationOptionCurveEaseIn
@@ -67,24 +82,35 @@
 }
 - (NSString *)hantei:(float)number{
     
-    if(time >= number - 0.05 && time <= number + 0.05)
-    {
-        NSLog(@"パーフェクト");
-        return @"PERFECT!!" ;
-    }else if(time >=number -0.10 && time <= number + 0.10){
-        NSLog(@"グレイト");
-        return @"GREAT!" ;
-        
-    }else if(time >= number - 0.15 && time <= number + 0.15) {
-        NSLog(@"グッド");
-        return @"GOOD" ;
-    }else{
-        NSLog(@"パッド");
-        return @"BAD" ;
-    }
+//    if(time >= number - 0.05 && time <= number + 0.05)
+//    {
+//        NSLog(@"パーフェクト");
+//        return @"PERFECT!!" ;
+//    }else if(time >=number -0.10 && time <= number + 0.10){
+//        NSLog(@"グレイト");
+//        return @"GREAT!" ;
+//        
+//    }else if(time >= number - 0.15 && time <= number + 0.15) {
+//        NSLog(@"グッド");
+//        return @"GOOD" ;
+//    }else{
+//        NSLog(@"パッド");
+//        return @"BAD" ;
+//    }
+    return 0;
 }
 -(void)button {
     [self hantei:3.0];
+//    
+//    if (label.layer.position.y == button.layer.position.y) {
+//       NSLog(@"パーフェクト");
+//    }
+    float sa = (label.layer.position.y - button.layer.position.y);
+    if (sa == 0) {
+        NSLog(@"パーフェクト");
+    }else {
+        NSLog(@"その他");
+    }
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

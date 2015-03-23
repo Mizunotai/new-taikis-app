@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		B60C59531A9875F7006D7FBA /* ColorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B60C59521A9875F7006D7FBA /* ColorViewController.m */; };
+		B63024501ABFE8A300062701 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B630244F1ABFE8A300062701 /* Foundation.framework */; };
+		B63024521ABFE8BD00062701 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B63024511ABFE8BD00062701 /* CoreGraphics.framework */; };
+		B63024541ABFE8D400062701 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B63024531ABFE8D400062701 /* UIKit.framework */; };
 		B6513B661A85B05B00D441A3 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6513B641A85B05B00D441A3 /* HomeViewController.m */; };
 		B6513B671A85B05B00D441A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6513B651A85B05B00D441A3 /* Main.storyboard */; };
 		B67ABF661A7B847C0099F19E /* BButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B67ABF5F1A7B847C0099F19E /* BButton.m */; };
@@ -38,6 +41,9 @@
 /* Begin PBXFileReference section */
 		B60C59511A9875F7006D7FBA /* ColorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorViewController.h; sourceTree = "<group>"; };
 		B60C59521A9875F7006D7FBA /* ColorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorViewController.m; sourceTree = "<group>"; };
+		B630244F1ABFE8A300062701 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		B63024511ABFE8BD00062701 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		B63024531ABFE8D400062701 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B6513B631A85B05B00D441A3 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = SOURCE_ROOT; };
 		B6513B641A85B05B00D441A3 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = SOURCE_ROOT; };
 		B6513B651A85B05B00D441A3 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = SOURCE_ROOT; };
@@ -71,6 +77,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B63024541ABFE8D400062701 /* UIKit.framework in Frameworks */,
+				B63024521ABFE8BD00062701 /* CoreGraphics.framework in Frameworks */,
+				B63024501ABFE8A300062701 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,6 +119,9 @@
 		B689EC2A1A611495000A6E11 = {
 			isa = PBXGroup;
 			children = (
+				B63024531ABFE8D400062701 /* UIKit.framework */,
+				B63024511ABFE8BD00062701 /* CoreGraphics.framework */,
+				B630244F1ABFE8A300062701 /* Foundation.framework */,
 				B67ABF5D1A7B847C0099F19E /* BButton */,
 				B689EC351A611495000A6E11 /* new taikis app */,
 				B689EC4F1A611495000A6E11 /* new taikis appTests */,
@@ -355,7 +367,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -390,7 +402,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
