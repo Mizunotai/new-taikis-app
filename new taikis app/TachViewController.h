@@ -15,6 +15,7 @@
     float speed;
     UILabel *label;
     int random;
+    UIButton*button;
 }
 -(void)up;
 @end

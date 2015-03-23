@@ -36,13 +36,17 @@
     CGRect appframe = [[UIScreen mainScreen] applicationFrame];
     label= [[UILabel alloc]initWithFrame:CGRectMake(appframe.size.width/2-25,0, 50,  50)];
     label.backgroundColor =[UIColor blackColor];
-   [self.view addSubview:label];
-//    speed = appframe.size.width /2 ;
-    
+    [self.view addSubview:label];
+
+    button =[[UIButton alloc]initWithFrame:CGRectMake(appframe.size.width/2-25,appframe.size.height/2+250, 50, 50)];
+    button.backgroundColor = [UIColor redColor];
+    [button addTarget:self action:@selector(button) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button];
 }
 -(void)up{
     time += 0.01;
     NSLog(@"%f",time);
+    
     if (time > 3.0) {
         [UIView animateWithDuration:0.3f // アニメーション速度2.5秒
                               delay:0.0f // 1秒後にアニメーション
@@ -59,6 +63,9 @@
 
         
     }
+    
+}
+-(void)button {
     
 }
 - (void)didReceiveMemoryWarning {
