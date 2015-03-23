@@ -26,8 +26,7 @@
     
     
    // UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(150,550, 130, 130)];
-    
-    time =0.0;
+       time =0.0;
     timer = [NSTimer scheduledTimerWithTimeInterval:0.01
                                              target:self
                                            selector:@selector(up)
@@ -44,12 +43,12 @@
 -(void)up{
     time += 0.01;
     NSLog(@"%f",time);
-    if (time > 10.0) {
+    if (time > 3.0) {
         [UIView animateWithDuration:0.3f // アニメーション速度2.5秒
                               delay:0.0f // 1秒後にアニメーション
                             options:UIViewAnimationOptionCurveEaseIn
                          animations:^{
-                             CGAffineTransform translate = CGAffineTransformMakeTranslation(0,300);
+                             CGAffineTransform translate = CGAffineTransformMakeTranslation(0,900);
                              [label setTransform:translate];
                              // アニメーションをする処理
                          } completion:^(BOOL finished) {
