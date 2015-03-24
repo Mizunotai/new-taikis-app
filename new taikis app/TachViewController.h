@@ -10,16 +10,19 @@
 
 @interface TachViewController : UIViewController
 {
-    int time;
+   float time;
     NSTimer *timer;
-    float speed;
-    UILabel *label;
+    
+    
     int random;
     UIButton*button;
-   
+ 
+    UILabel *label;
+   float speed;
 }
 -(void)up;
 -(void)button;
 -(NSString *)hantei:(float)number;
+
 
 @end
