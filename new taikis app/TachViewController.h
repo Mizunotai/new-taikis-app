@@ -9,20 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface TachViewController : UIViewController
-{
-    /*タイマー*/
-    float time;
-    NSTimer *timer;
-    
-    
-    UIButton*button;
- 
-    UILabel *label;
-    float speed;
-}
--(void)up;
--(void)button;
--(NSString *)hantei:(float)number;
-
 
 @end
