@@ -56,15 +56,16 @@
  
     CGRect appframe = [[UIScreen mainScreen] applicationFrame];
     
-    if (CGRectContainsPoint(button.frame,label.center)) {
-        //NSLog(@"aaa");
-    }
+//    if (CGRectContainsPoint(button.frame,label.center)) {
+//        
+//        NSLog(@"aaa");
+//    }
     
     
     if (10.0 - 1.2 <= time ) {
-        
-        
+       
         float y = (time - 10.0 + 1.2) * speed -75 ;
+        
         label.frame = CGRectMake(appframe.size.width/2 -25, y, 50, 50);
         
 //        [UIView animateWithDuration:1 // アニメーション速度2.5秒
@@ -78,61 +79,54 @@
 //                            hanteicount ++;
 //                             label.frame =CGRectMake(appframe.size.width/2-25,-50, 50, 50);
 //                             [self.view addSubview:label];
-        
+//        
 //                         }];
-        
+//        
         
     }
     
 }
 - (NSString *)hantei:(float)number{
-//    
-//    if(time >= number - 0.05 && time <= number + 0.05)
-//    {
-//        NSLog(@"パーフェクト");
-//        return @"PERFECT!!" ;
-//    }else if(time >=number -0.10 && time <= number + 0.10){
-//        NSLog(@"グレイト");
-//        return @"GREAT!" ;
-//        
-//    }else if(time >= number - 0.15 && time <= number + 0.15) {
-//        NSLog(@"グッド");
-//        return @"GOOD" ;
-//    }else{
-//        NSLog(@"パッド");
-//        return @"BAD" ;
-//    }
+    
+    if(time >= number - 0.05 && time <= number + 0.05)
+    {
+        NSLog(@"パーフェクト");
+        return @"PERFECT!!" ;
+    }else if(time >=number -0.10 && time <= number + 0.10){
+        NSLog(@"グレイト");
+        return @"GREAT!" ;
+        
+    }else if(time >= number - 0.15 && time <= number + 0.15) {
+        NSLog(@"グッド");
+        return @"GOOD" ;
+    }else{
+        NSLog(@"パッド");
+        return @"BAD" ;
+    }
     
     
-    return 0;
+//    return 0;
     
 }
 
 -(void)button {
-//    [self hantei:time ];
-    float sa = (label.layer.position.y - button.layer.position.y);
+    [self hantei:10];
+//    float sa = (label.layer.position.y - button.layer.position.y);
    
     
    
-    if (sa == 0) {
-        NSLog(@"パーフェクト");
-        [label removeFromSuperview];
-    }else if (sa >= sa+0.15 && sa <= sa-0.15){
-        NSLog(@"グレイト");
-    }else if (sa >= sa+0.3 && sa <= sa-0.3){
-        NSLog(@"グッと");//    [self hantei:3.0];
-
-    if (label.layer.position.y == button.layer.position.y) {
-       NSLog(@"パーフェクト");
-  }
-    if (label.layer.position.y+button.layer.position.y  ) {
-        NSLog(@"ががが");
-    }
-
-    }else if(sa >sa+0.3 && sa <sa-0.3){
-        NSLog(@"論外");
-    }
-        }
+//    if (sa == 0) {
+//        NSLog(@"パーフェクト");
+////        [label removeFromSuperview];
+//    }else if (sa <= sa+0.15 && sa >= sa-0.15){
+//        NSLog(@"グレイト");
+//    }else if (sa <= sa+0.3 && sa >= sa-0.3){
+//        NSLog(@"グッと");//    [self hantei:3.0];
+//
+//    }else if(sa >sa+0.3 && sa <sa-0.3){
+//        NSLog(@"論外");
+//    }
+       }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
