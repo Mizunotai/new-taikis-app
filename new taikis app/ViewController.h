@@ -10,14 +10,18 @@
 #import "BButton.h"
 @interface ViewController: UIViewController<UITextFieldDelegate>{
   
-     UILabel *downLabel;
-    int countDown ;
-    NSTimer * countDownTimer;
-    IBOutlet UILabel *label;
+    float time ;
+    float d;
+    NSTimer *timer;
+    UILabel *countDwonLabel;
+    CAShapeLayer *l;
+    CAShapeLayer *whiteLayer;
+    
+    
     
     UIImage *img;
     UIImageView *mainview;
-    UIButton *onemore;
+   
     
     int rundomViewInt ;
     NSMutableArray *nameString;

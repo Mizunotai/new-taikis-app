@@ -24,25 +24,14 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     
-    countDownTimer =[NSTimer   scheduledTimerWithTimeInterval:1
-                                                       target:self
-                                                     selector:@selector(countdwontime:)
-                                                     userInfo:nil
-                                                      repeats:YES];
     
-    countDown = 3;
-    rundomViewInt = arc4random_uniform(2);//画像をランダムで表示させるためのもの
+    
+    
+    rundomViewInt = arc4random() % 2;//画像をランダムで表示させるためのもの
 
     NSLog(@"%d",rundomViewInt);
     
     
-    downLabel =[[UILabel alloc]initWithFrame:
-                CGRectMake(self.view.frame.size.width/2-100, self.view.frame.size.height/2-100 ,200 ,200)];
-    downLabel.textColor = [UIColor blackColor];
-    downLabel.font =[UIFont boldSystemFontOfSize:200];
-    downLabel.textAlignment = NSTextAlignmentCenter;
-    downLabel.text =[NSString stringWithFormat:@"%d",countDown];
-    [self.view addSubview:downLabel];
     imgName = [NSString stringWithFormat:@"pico%d.png",rundomViewInt];
 
     img = [UIImage imageNamed:imgName];
@@ -70,33 +59,24 @@
     seikaiLabel.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:seikaiLabel];
     seikaiLabel.alpha = 0 ;
-    label.alpha = 0;
     
+    /*---------------------------　ボタン関係 ----------------------------------------------*/
     BButtonType type = BButtonTypeSuccess;
     CGRect frame = CGRectMake(150,500,100,60);
     home=[[BButton alloc]initWithFrame:frame type:type];
     [home setTitle:@"ホームへ" forState:UIControlStateNormal];
     [home addTarget:self
-            action:@selector(hoge:) forControlEvents:UIControlEventTouchUpInside];
+             action:@selector(hoge:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:home];
     home.alpha = 0;
-    
-//    CGRect onemoreFrame =CGRectMake(112, 160, 155, 55);
-//    BButtonType onemoreType = BButtonTypeWarning;
-//    onemore =[[BButton alloc]initWithFrame:onemoreFrame type:onemoreType];
-//    [onemore setTitle:@"もう一度" forState:UIControlStateNormal];
-//    [onemore addTarget:self
-//                action:@selector(mouitido:) forControlEvents:UIControlEventTouchUpInside];
-    
-   /*  nameStringの中身をランダムに変更 　*/
+
+    /*  nameStringの中身をランダムに変更 　*/
     for (int i = 0; i < [nameString count];i ++) {
         int j =arc4random() % 4;
         [nameString exchangeObjectAtIndex:i withObjectAtIndex:j];
-       
+        
     }
-    
-    
-    
+
     /* 一つ目のボタン */
     CGRect btnRect =CGRectMake(80,self.view.frame.size.height/2+20, 215, 50);
     BButtonType btnType =BButtonTypeSuccess ;
@@ -125,28 +105,54 @@
     [btn4 setTitle: [NSString stringWithFormat:@"%@",nameString[3]]  forState:UIControlStateNormal];
     [btn4 addTarget:self action:@selector(btn4:) forControlEvents:UIControlEventTouchUpInside];
     
+   /*------------------------------- カウントダウン関係 --------------------------------------*/
+    l = [CAShapeLayer layer];
+    whiteLayer = [CAShapeLayer layer];
     
+    [self drawPathGraph:0:360:[UIColor blackColor]:100:l];
+    [self drawPathGraph:0:360:[UIColor whiteColor]:70:whiteLayer];
+    
+    countDwonLabel =[[UILabel alloc]initWithFrame:
+                     CGRectMake(self.view.bounds.size.width/2-50,self.view.bounds.size.height/2-50,100,100)];
+    //    countDwonLabel.backgroundColor = [UIColor redColor];
+    countDwonLabel.font =[UIFont boldSystemFontOfSize:80];
+    countDwonLabel.textAlignment = NSTextAlignmentCenter;
+    [self.view addSubview:countDwonLabel];
+    
+    // [self drawPathGraph:0:d:[UIColor whiteColor]:100];
+    //    [self drawPathGraph:60:60:[UIColor yellowColor]:100];
+    
+    [self.view.layer addSublayer:l];
+    [self.view.layer addSublayer:whiteLayer];
+    [self.view bringSubviewToFront:countDwonLabel];
+    timer = [NSTimer scheduledTimerWithTimeInterval:0.01
+                                             target:self
+                                           selector:@selector(up)
+                                           userInfo:nil
+                                            repeats:YES];
+    time = 4 ;
+    d =0;
+}
 
-    
 
+- (void)up {
+    time -= 0.01;
+    NSLog(@"%f",time);
+    d = d + 1 ;
+    [self drawPathGraph:d*3.6:360-d*3.6:[UIColor blackColor]:100:l];
+    countDwonLabel.text = [NSString stringWithFormat:@"%d",(int)time];
     
- 
-    }
-
-
-- (void)countdwontime:(NSTimer *)_timer {
-    
-    countDown -= 1;
-    downLabel .text = [NSString stringWithFormat:@"%d",countDown];
-    
-    if (countDown ==0){
-        [countDownTimer invalidate];
-        label.alpha = 1;
-        downLabel.hidden = YES;
+    if (time <1){
+        [timer invalidate];
+        [l removeFromSuperlayer];
+        [countDwonLabel removeFromSuperview];
+        [whiteLayer removeFromSuperlayer];
+        
+        
         
             [UIView animateWithDuration:0.8f
                              animations:^{
-                                 label.alpha = 0;
+//                                 label.alpha = 0;
             } completion:^(BOOL finished){
                 [self.view addSubview:mainview];
                 
@@ -161,7 +167,7 @@
                                  } completion:^(BOOL finished) {
                                      // アニメーションが終わった後実行する処理
                                      //もう一度のボタンを表示
-                                     [self.view addSubview:onemore];
+                                     
                                      
                                      [self.view addSubview:btn1];
                                      [self.view addSubview:btn2];
@@ -175,33 +181,6 @@
         }
     
 }
-//-(void)mouitido:(UIButton *)button{
-//   
-//    mainview.frame = CGRectMake(350,200, 200,  200);
-//    mainview.contentMode = UIViewContentModeScaleAspectFit;
-//
-//    [self.view addSubview:mainview];
-//    onemore.hidden = YES;
-//    
-//    
-//    
-//    [UIView animateWithDuration:0.3f // アニメーション速度2.5秒
-//                          delay:0.0f // 1秒後にアニメーション
-//                        options:UIViewAnimationOptionCurveEaseIn
-//                     animations:^{
-//                         
-//                        
-//                          CGAffineTransform translate = CGAffineTransformMakeTranslation(-90, 0);
-//                         [mainview setTransform:translate];
-//                         // アニメーションをする処理
-//                     } completion:^(BOOL finished) {
-//                         
-//                         
-//                         
-//                     }];
-//    
-//    
-//}
 
 -(void)btn:(UIButton *)button{
     if (name == nameString[0]) {
@@ -222,7 +201,8 @@
                          
                              
                          }];
-        [onemore removeFromSuperview];
+        
+        
         [btn1 removeFromSuperview];
         [btn2 removeFromSuperview];
         [btn3 removeFromSuperview];
@@ -240,7 +220,7 @@
         mainview.contentMode = UIViewContentModeScaleAspectFit;
         mainview.alpha = 0;
 
-        [onemore removeFromSuperview];
+        
         [btn1 removeFromSuperview];
         [btn2 removeFromSuperview];
         [btn3 removeFromSuperview];
@@ -271,7 +251,7 @@
         mainview.contentMode = UIViewContentModeScaleAspectFit;
         mainview.alpha = 0;
 
-        [onemore removeFromSuperview];
+        
         [btn1 removeFromSuperview];
         [btn2 removeFromSuperview];
         [btn3 removeFromSuperview];
@@ -300,9 +280,7 @@
         mainview.frame = CGRectMake(self.view.frame.size.width/2 - 150,self.view.frame.size.height-600, 300,  300);
         mainview.contentMode = UIViewContentModeScaleAspectFit;
         mainview.alpha = 0;
-
-        [onemore removeFromSuperview];
-        
+ 
         [btn1 removeFromSuperview];
         [btn2 removeFromSuperview];
         [btn3 removeFromSuperview];
@@ -324,6 +302,65 @@
     }else{
         NSLog(@"不正解");
     }
+}
+
+// 円を描画するメソッド
+- (void) drawFunShapeWithCenter:(CGPoint)center
+                         radius:(CGFloat)radius
+                     startAngle:(CGFloat)startAngle
+                          angle:(CGFloat)angle
+                          color:(UIColor*)color
+                       casLayer:(CAShapeLayer*)casLayer
+{
+    // インスタンス生成
+    UIBezierPath* path = [UIBezierPath bezierPath];
+    
+    
+    // 終了角度を算出
+    CGFloat endAngle = startAngle + angle;
+    
+    [path addArcWithCenter:center
+                    radius:radius
+                startAngle:startAngle
+                  endAngle:endAngle
+                 clockwise:YES];
+    // 円弧から中心へ直線を引く
+    [path addLineToPoint:center];
+    
+    
+    // 描画実行
+    casLayer.path = path.CGPath;
+    if (color) {
+        casLayer.strokeColor = color.CGColor;
+        casLayer.fillColor = color.CGColor;
+    }
+    
+    //[self.view.layer addSublayer:l];
+    
+    
+    //[self.view.layer insertSublayer:l atIndex:0];
+    
+}
+
+// pathに渡す値を作成するメソッド
+- (void)drawPathGraph:(CGFloat)setStartAngle
+                     :(CGFloat)setEndAngle
+                     :(UIColor*)setColor
+                     :(float)r
+                     :(CAShapeLayer*)casLayer{
+    // 円の中心点
+    CGFloat centerX = self.view.bounds.size.width / 2;
+    CGFloat centerY = self.view.bounds.size.height / 2;
+    CGPoint center = CGPointMake(centerX, centerY);
+    
+    // 円の半径
+    CGFloat radius = r;
+    // 開始角度
+    CGFloat startAngle = M_PI*2 * (90-setStartAngle)/360 * (-1);
+    
+    CGFloat angle = M_PI*2 * setEndAngle/360;
+    UIColor* color = setColor;
+    [self drawFunShapeWithCenter:center radius:radius startAngle:startAngle angle:angle color:color casLayer:casLayer];
 }
 -(void)hoge:(UIButton*)button{
     [self dismissViewControllerAnimated:YES completion:nil];

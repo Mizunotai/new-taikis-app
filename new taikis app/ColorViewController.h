@@ -10,10 +10,14 @@
 #import "BButton.h"
 
 @interface ColorViewController : UIViewController{
-    
+    float time ;
+    float d;
+    NSTimer *timer;
+    UILabel *countDwonLabel;
+    CAShapeLayer *l;
+    CAShapeLayer *whiteLayer;
     UILabel *idouLabel;
-    int countDwon;
-    NSTimer * timer;
+ 
     UIButton *btn1;
     UIButton *btn2;
     UIButton *btn3;

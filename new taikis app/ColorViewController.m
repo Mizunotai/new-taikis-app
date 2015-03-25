@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-   
+    
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
     
@@ -36,7 +36,7 @@
             break;
         case 1:
             idouLabel.backgroundColor = [UIColor yellowColor];
-           NSLog(@"黄");
+            NSLog(@"黄");
             colorName =@"黄色" ;
             colorNamesArray =[@[@"赤色",@"黄色",@"青色",@"緑色"]mutableCopy];
             break;
@@ -53,22 +53,8 @@
             colorNamesArray =[@[@"赤色",@"黄色",@"青色",@"緑色"]mutableCopy];
             break;
     }
-    countDwon = 3;
-    downLabel =[[UILabel alloc]initWithFrame:
-                CGRectMake(self.view.frame.size.width/2-100, self.view.frame.size.height/2-100 ,200 ,200)];
-    downLabel.textColor = [UIColor blackColor];
-    downLabel.font =[UIFont boldSystemFontOfSize:200];
-    downLabel.textAlignment = NSTextAlignmentCenter;
-    downLabel.text =[NSString stringWithFormat:@"%d",countDwon];
-    [self.view addSubview:downLabel];
-
-    timer =[NSTimer   scheduledTimerWithTimeInterval:1
-                                              target:self
-                                            selector:@selector(time:)
-                                            userInfo:nil
-                                             repeats:YES];
-   
-   
+    
+    
     totalProblem =10;
     currentProblem = 0;
     
@@ -76,14 +62,14 @@
         int j = arc4random()%4;
         [colorNamesArray exchangeObjectAtIndex:i withObjectAtIndex:j];
     }
-   
+    
     
     
     /* 一つ目のボタン */
     CGRect btnRect =CGRectMake(80,self.view.frame.size.height/2+20, 215, 50);
     BButtonType btnType =BButtonTypeSuccess ;
     btn1 =[[BButton alloc]initWithFrame:btnRect type:btnType];
-  [btn1 setTitle: [NSString stringWithFormat:@"%@",colorNamesArray[0]]  forState:UIControlStateNormal];
+    [btn1 setTitle: [NSString stringWithFormat:@"%@",colorNamesArray[0]]  forState:UIControlStateNormal];
     [btn1 addTarget:self action:@selector(btn:) forControlEvents:UIControlEventTouchUpInside];
     /*　２つ目のボタン　*/
     CGRect btn2Rect =CGRectMake(80,self.view.frame.size.height/2+80 , 215, 50);
@@ -105,13 +91,49 @@
     btn4 =[[BButton alloc]initWithFrame:btn4Rect type:btn4Type];
     [btn4 setTitle: [NSString stringWithFormat:@"%@",colorNamesArray[3]]  forState:UIControlStateNormal];
     [btn4 addTarget:self action:@selector(btn4:) forControlEvents:UIControlEventTouchUpInside];
+    
+    l = [CAShapeLayer layer];
+    whiteLayer = [CAShapeLayer layer];
+    
+    [self drawPathGraph:0:360:[UIColor blackColor]:100:l];
+    [self drawPathGraph:0:360:[UIColor whiteColor]:70:whiteLayer];
+    
+    countDwonLabel =[[UILabel alloc]initWithFrame:
+                     CGRectMake(self.view.bounds.size.width/2-50,self.view.bounds.size.height/2-50,100,100)];
+    //    countDwonLabel.backgroundColor = [UIColor redColor];
+    countDwonLabel.font =[UIFont boldSystemFontOfSize:80];
+    countDwonLabel.textAlignment = NSTextAlignmentCenter;
+    [self.view addSubview:countDwonLabel];
+    
+    // [self drawPathGraph:0:d:[UIColor whiteColor]:100];
+    //    [self drawPathGraph:60:60:[UIColor yellowColor]:100];
+    
+    [self.view.layer addSublayer:l];
+    [self.view.layer addSublayer:whiteLayer];
+    [self.view bringSubviewToFront:countDwonLabel];
+    timer = [NSTimer scheduledTimerWithTimeInterval:0.01
+                                             target:self
+                                           selector:@selector(up)
+                                           userInfo:nil
+                                            repeats:YES];
+    time = 4 ;
+    d =0;
+    
+    
 }
--(void)time:(NSTimer *)time{
-    countDwon -= 1;
-    downLabel .text = [NSString stringWithFormat:@"%d",countDwon];
-    if (countDwon == 0){
-        [time invalidate];
-        NSLog(@"%d",countDwon);
+-(void)up{
+    time -= 0.01;
+    NSLog(@"%f",time);
+    d = d + 1 ;
+    [self drawPathGraph:d*3.6:360-d*3.6:[UIColor blackColor]:100:l];
+    countDwonLabel.text = [NSString stringWithFormat:@"%d",(int)time];
+    
+    if (time < 1){
+        [timer invalidate];
+        [l removeFromSuperlayer];
+        [countDwonLabel removeFromSuperview];
+        [whiteLayer removeFromSuperlayer];
+        
         [self.view addSubview:idouLabel];
         [downLabel removeFromSuperview];
         [UIView animateWithDuration:0.1
@@ -130,8 +152,8 @@
                              
                          }];
         
-   }
-
+    }
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -213,24 +235,24 @@
                 colorNamesArray =[@[@"赤色",@"黄色",@"青色",@"緑色"]mutableCopy];
                 break;
         }
-
+        
         idouLabel.frame = CGRectMake(450,200, 100,  100);
         [self.view addSubview:idouLabel];
         
         
-                    [UIView animateWithDuration:0.1
+        [UIView animateWithDuration:0.1
                               delay:0.5f
                             options:UIViewAnimationOptionCurveEaseIn
-                        animations:^{
-                            if (currentProblem == 1) {
-                                CGAffineTransform translate = CGAffineTransformMakeTranslation(-550*2, 0);
-                                [idouLabel setTransform:translate];
-                                currentProblem ++;
-                            }else{
-                             CGAffineTransform translate = CGAffineTransformMakeTranslation(-550*currentProblem, 0);
-                             [idouLabel setTransform:translate];
-                                }
-                            NSLog(@"%dだよ",currentProblem);
+                         animations:^{
+                             if (currentProblem == 1) {
+                                 CGAffineTransform translate = CGAffineTransformMakeTranslation(-550*2, 0);
+                                 [idouLabel setTransform:translate];
+                                 currentProblem ++;
+                             }else{
+                                 CGAffineTransform translate = CGAffineTransformMakeTranslation(-550*currentProblem, 0);
+                                 [idouLabel setTransform:translate];
+                             }
+                             NSLog(@"%dだよ",currentProblem);
                          }completion:^(BOOL finish){
                              [self.view addSubview:btn1];
                              [self.view addSubview:btn2];
@@ -239,8 +261,8 @@
                              
                              
                          }];
-
-
+        
+        
     }else{
         [btn1 removeFromSuperview];
         [btn2 removeFromSuperview];
@@ -260,21 +282,79 @@
         [backbtn setTitle: @"ホームへ"  forState:UIControlStateNormal];
         [backbtn addTarget:self action:@selector(backbtton:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:backbtn];
-        }
+    }
     
     
 }
 -(void)backbtton:(UIButton *)button{
     [self dismissViewControllerAnimated:YES completion:nil];
+}// 円を描画するメソッド
+- (void) drawFunShapeWithCenter:(CGPoint)center
+                         radius:(CGFloat)radius
+                     startAngle:(CGFloat)startAngle
+                          angle:(CGFloat)angle
+                          color:(UIColor*)color
+                       casLayer:(CAShapeLayer*)casLayer
+{
+    // インスタンス生成
+    UIBezierPath* path = [UIBezierPath bezierPath];
+    
+    
+    // 終了角度を算出
+    CGFloat endAngle = startAngle + angle;
+    
+    [path addArcWithCenter:center
+                    radius:radius
+                startAngle:startAngle
+                  endAngle:endAngle
+                 clockwise:YES];
+    // 円弧から中心へ直線を引く
+    [path addLineToPoint:center];
+    
+    
+    // 描画実行
+    casLayer.path = path.CGPath;
+    if (color) {
+        casLayer.strokeColor = color.CGColor;
+        casLayer.fillColor = color.CGColor;
+    }
+    
+    //[self.view.layer addSublayer:l];
+    
+    
+    //[self.view.layer insertSublayer:l atIndex:0];
+    
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+// pathに渡す値を作成するメソッド
+- (void)drawPathGraph:(CGFloat)setStartAngle
+                     :(CGFloat)setEndAngle
+                     :(UIColor*)setColor
+                     :(float)r
+                     :(CAShapeLayer*)casLayer{
+    // 円の中心点
+    CGFloat centerX = self.view.bounds.size.width / 2;
+    CGFloat centerY = self.view.bounds.size.height / 2;
+    CGPoint center = CGPointMake(centerX, centerY);
+    
+    // 円の半径
+    CGFloat radius = r;
+    // 開始角度
+    CGFloat startAngle = M_PI*2 * (90-setStartAngle)/360 * (-1);
+    
+    CGFloat angle = M_PI*2 * setEndAngle/360;
+    UIColor* color = setColor;
+    [self drawFunShapeWithCenter:center radius:radius startAngle:startAngle angle:angle color:color casLayer:casLayer];
 }
-*/
+
+/*
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end
