@@ -140,7 +140,7 @@
     downLabel .text = [NSString stringWithFormat:@"%d",countDown];
     
     if (countDown ==0){
-    
+        [countDownTimer invalidate];
         label.alpha = 1;
         downLabel.hidden = YES;
         

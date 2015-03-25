@@ -110,6 +110,7 @@
     countDwon -= 1;
     downLabel .text = [NSString stringWithFormat:@"%d",countDwon];
     if (countDwon == 0){
+        [time invalidate];
         NSLog(@"%d",countDwon);
         [self.view addSubview:idouLabel];
         [downLabel removeFromSuperview];
