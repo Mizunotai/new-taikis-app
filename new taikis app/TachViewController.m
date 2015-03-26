@@ -27,6 +27,7 @@
     CAShapeLayer *l;
     CAShapeLayer *whiteLayer;
     
+    int rundom;
     
 }
 
@@ -40,7 +41,7 @@
     
     
     
-    button =[[UIButton alloc]initWithFrame:CGRectMake(self.view.frame.size.width/2-25,self.view.frame.size.height/2+250, 50, 50)];
+    button =[[UIButton alloc]initWithFrame:CGRectMake(self.view.frame.size.width/2-25,self.view.frame.size.height/2, 50, 50)];
     button.backgroundColor = [UIColor redColor];
     [button addTarget:self action:@selector(button) forControlEvents:UIControlEventTouchDown];
     
@@ -81,7 +82,7 @@
 
 -(void)up{
     time -= 0.01;
-    NSLog(@"%f",time);
+  //  NSLog(@"%f",time);
     d = d + 1 ;
     [self drawPathGraph:d*3.6:360-d*3.6:[UIColor blackColor]:100:l];
     countDwonLabel.text = [NSString stringWithFormat:@"%d",(int)time];
@@ -92,7 +93,10 @@
         [countDwonLabel removeFromSuperview];
         [whiteLayer removeFromSuperlayer];
         [self.view addSubview:button];
-        labelY=labelY+10;
+        
+        rundom = arc4random() %10;
+        labelY=labelY+(10+rundom);//labelの落ちるはやさ
+        NSLog(@"%dだだだだ",rundom);
         label.center = CGPointMake(self.view.frame.size.width/2, labelY);
         
         
@@ -119,8 +123,10 @@
 
 -(void)button {
     if (CGRectContainsPoint(button.frame, label.center)) {
-        NSLog(@"ぬるぽが");
+//        NSLog(@"ぬるぽが");
         [label removeFromSuperview];
+    }else {
+        
     }
 }
 
@@ -195,12 +201,7 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    //    if (CGRectContainsPoint(button.frame,label.center)) {
-    //
-    //        NSLog(@"aaa");
-    //    }
-    // Dispose of any resources that can be recreated.
-}
+    }
 
 /*
  #pragma mark - Navigation

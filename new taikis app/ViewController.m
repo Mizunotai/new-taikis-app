@@ -134,7 +134,7 @@
     d =0;
 }
 
-
+/*---------------------------------タイマー-------------------------------------------*/
 - (void)up {
     time -= 0.01;
     NSLog(@"%f",time);
@@ -181,7 +181,7 @@
         }
     
 }
-
+/*-------------------------------------ボタンの内容-----------------------------------------------*/
 -(void)btn:(UIButton *)button{
     if (name == nameString[0]) {
         NSLog(@"正解");
@@ -303,7 +303,10 @@
         NSLog(@"不正解");
     }
 }
-
+-(void)hoge:(UIButton*)button{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+/*-----------------------------------------------------カウントダウンのやつ--------------------------------------*/
 // 円を描画するメソッド
 - (void) drawFunShapeWithCenter:(CGPoint)center
                          radius:(CGFloat)radius
@@ -362,9 +365,7 @@
     UIColor* color = setColor;
     [self drawFunShapeWithCenter:center radius:radius startAngle:startAngle angle:angle color:color casLayer:casLayer];
 }
--(void)hoge:(UIButton*)button{
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

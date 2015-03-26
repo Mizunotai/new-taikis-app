@@ -57,7 +57,7 @@
     
     totalProblem =10;
     currentProblem = 0;
-    
+    /*------------------------------ボタン関係-----------------------------------*/
     for (int i; i <[colorNamesArray count]; i++) {
         int j = arc4random()%4;
         [colorNamesArray exchangeObjectAtIndex:i withObjectAtIndex:j];
@@ -105,9 +105,7 @@
     countDwonLabel.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:countDwonLabel];
     
-    // [self drawPathGraph:0:d:[UIColor whiteColor]:100];
-    //    [self drawPathGraph:60:60:[UIColor yellowColor]:100];
-    
+      
     [self.view.layer addSublayer:l];
     [self.view.layer addSublayer:whiteLayer];
     [self.view bringSubviewToFront:countDwonLabel];
