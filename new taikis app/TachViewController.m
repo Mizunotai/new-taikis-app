@@ -93,18 +93,48 @@
         [countDwonLabel removeFromSuperview];
         [whiteLayer removeFromSuperlayer];
         [self.view addSubview:button];
-       
-        //        labelY=labelY+10;
-//        label.center = CGPointMake(labelX, labelY);
+        switch (num) {
+            case 0:
+                labelY=labelY+10;
+                label.center = CGPointMake(labelX, labelY);
+                if (label.center.y >= 700) {
+                    [label removeFromSuperview];
+                    [self addLabel];
+                }
+                
+                break;
+            case 1:
+                labelY = labelY-10;
+                label.center = CGPointMake(labelX, labelY);
+                if (label.center.y >= 0) {
+                    [label removeFromSuperview];
+                    [self addLabel];
+                }
+                
+                break;
+            case 2:
+                labelX = labelX+10;
+                label.center = CGPointMake(labelX, labelY);
+                if (label.center.x >= 360) {
+                    [label removeFromSuperview];
+                    [self addLabel];
+                }
+                break;
+            case 3:
+                labelX = labelX-10;
+                label.center = CGPointMake(labelX, labelY);
+                if (label.center.x >= 0) {
+                    [label removeFromSuperview];
+                    
+                    [self addLabel];
+                }
+                
+                break;
+                
+        }
         
         
-//        if (label.center.y >= 700) {
-//            [label removeFromSuperview];
-//            
-//            
-//            
-//            [self addLabel];
-//        }
+        
         
     }
     
@@ -113,8 +143,8 @@
 -(void)addLabel{
     
     num = arc4random() %4;
-//    NSLog(@"%d",num);
-       switch (num) {
+    NSLog(@"%d",num);
+    switch (num) {
         case 0:
             labelY = 0;
             labelX = (self.view.frame.size.width/2);
@@ -134,7 +164,7 @@
             break;
     }
     
-//    labelY = -50;
+    //    labelY = -50;
     label= [[UILabel alloc]initWithFrame:CGRectMake(labelX ,labelY, 50,  50)];
     label.backgroundColor =[UIColor blackColor];
     label.center = CGPointMake(labelX, labelY);
