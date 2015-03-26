@@ -96,6 +96,7 @@
         switch (num) {
             case 0:
                 labelY=labelY+10;
+                
                 label.center = CGPointMake(labelX, labelY);
                 if (label.center.y >= 700) {
                     [label removeFromSuperview];
@@ -106,14 +107,15 @@
             case 1:
                 labelY = labelY-10;
                 label.center = CGPointMake(labelX, labelY);
-                if (label.center.y >= 0) {
+                NSLog(@"%d",labelY);
+                if (label.center.y <= 0) {
                     [label removeFromSuperview];
                     [self addLabel];
                 }
                 
                 break;
             case 2:
-                labelX = labelX+10;
+                labelX = labelX+7;
                 label.center = CGPointMake(labelX, labelY);
                 if (label.center.x >= 360) {
                     [label removeFromSuperview];
@@ -121,9 +123,9 @@
                 }
                 break;
             case 3:
-                labelX = labelX-10;
+                labelX = labelX-7;
                 label.center = CGPointMake(labelX, labelY);
-                if (label.center.x >= 0) {
+                if (label.center.x <= 0) {
                     [label removeFromSuperview];
                     
                     [self addLabel];
@@ -143,6 +145,7 @@
 -(void)addLabel{
     
     num = arc4random() %4;
+    
     NSLog(@"%d",num);
     switch (num) {
         case 0:
