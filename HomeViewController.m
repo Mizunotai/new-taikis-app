@@ -39,7 +39,7 @@
 }
 -(IBAction)tach:(id)sender{
     UIViewController *viewController = [[TachViewController alloc]init];
-    viewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+    viewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [self presentViewController:viewController animated:YES completion:nil];
 }
 /*

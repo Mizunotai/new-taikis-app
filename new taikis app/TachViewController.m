@@ -18,7 +18,7 @@
     
     UIButton*button;
     UILabel *label;
-    int labelY;
+    int labelY,labelX;
     
     float time ;
     float d;
@@ -28,6 +28,8 @@
     CAShapeLayer *whiteLayer;
     
     int rundom;
+    int num;
+    
     
 }
 
@@ -41,7 +43,7 @@
     
     
     
-    button =[[UIButton alloc]initWithFrame:CGRectMake(self.view.frame.size.width/2-25,self.view.frame.size.height/2, 50, 50)];
+    button =[[UIButton alloc]initWithFrame:CGRectMake(self.view.frame.size.width/2-25,self.view.frame.size.height/2-25, 50, 50)];
     button.backgroundColor = [UIColor redColor];
     [button addTarget:self action:@selector(button) forControlEvents:UIControlEventTouchDown];
     
@@ -61,8 +63,6 @@
     countDwonLabel.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:countDwonLabel];
     
-    // [self drawPathGraph:0:d:[UIColor whiteColor]:100];
-    //    [self drawPathGraph:60:60:[UIColor yellowColor]:100];
     
     [self.view.layer addSublayer:l];
     [self.view.layer addSublayer:whiteLayer];
@@ -80,9 +80,9 @@
 }
 
 
--(void)up{
+
+-(void)up {
     time -= 0.01;
-  //  NSLog(@"%f",time);
     d = d + 1 ;
     [self drawPathGraph:d*3.6:360-d*3.6:[UIColor blackColor]:100:l];
     countDwonLabel.text = [NSString stringWithFormat:@"%d",(int)time];
@@ -93,37 +93,58 @@
         [countDwonLabel removeFromSuperview];
         [whiteLayer removeFromSuperlayer];
         [self.view addSubview:button];
-        
-        rundom = arc4random() %10;
-        labelY=labelY+(10+rundom);//labelの落ちるはやさ
-        NSLog(@"%dだだだだ",rundom);
-        label.center = CGPointMake(self.view.frame.size.width/2, labelY);
+       
+        //        labelY=labelY+10;
+//        label.center = CGPointMake(labelX, labelY);
         
         
-        if (label.center.y >= 700) {
-            [label removeFromSuperview];
-            
-            
-            
-            [self addLabel];
-        }
+//        if (label.center.y >= 700) {
+//            [label removeFromSuperview];
+//            
+//            
+//            
+//            [self addLabel];
+//        }
         
     }
     
     
 }
 -(void)addLabel{
-    labelY = -50;
-    label= [[UILabel alloc]initWithFrame:CGRectMake(self.view.frame.size.width/2-25 ,-50, 50,  50)];
+    
+    num = arc4random() %4;
+//    NSLog(@"%d",num);
+       switch (num) {
+        case 0:
+            labelY = 0;
+            labelX = (self.view.frame.size.width/2);
+            break;
+        case 1:
+            labelY = 650;
+            labelX = (self.view.frame.size.width/2);
+            break;
+            
+        case 2:
+            labelY = (self.view.frame.size.height/2);
+            labelX = 0;
+            break;
+        case 3:
+            labelY = (self.view.frame.size.height/2);
+            labelX = 350;
+            break;
+    }
+    
+//    labelY = -50;
+    label= [[UILabel alloc]initWithFrame:CGRectMake(labelX ,labelY, 50,  50)];
     label.backgroundColor =[UIColor blackColor];
-    label.center = CGPointMake(self.view.frame.size.width/2-25, labelY);
+    label.center = CGPointMake(labelX, labelY);
     [self.view addSubview:label];
     
 }
 
 -(void)button {
     if (CGRectContainsPoint(button.frame, label.center)) {
-//        NSLog(@"ぬるぽが");
+        //        NSLog(@"ぬるぽが");
         [label removeFromSuperview];
     }else {
         
@@ -161,10 +182,6 @@
         casLayer.fillColor = color.CGColor;
     }
     
-    //[self.view.layer addSublayer:l];
-    
-    
-    //[self.view.layer insertSublayer:l atIndex:0];
     
 }
 
@@ -201,7 +218,7 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    }
+}
 
 /*
  #pragma mark - Navigation
