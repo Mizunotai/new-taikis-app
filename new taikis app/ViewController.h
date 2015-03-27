@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "BButton.h"
 @interface ViewController: UIViewController<UITextFieldDelegate>{
-  
+    
     float time ;
     float d;
     NSTimer *timer;
@@ -21,7 +21,7 @@
     
     UIImage *img;
     UIImageView *mainview;
-   
+    
     
     int rundomViewInt ;
     NSMutableArray *nameString;
@@ -38,10 +38,10 @@
     int rundom;
     
     
-  
     
- 
-
+    
+    
+    
     
     
     

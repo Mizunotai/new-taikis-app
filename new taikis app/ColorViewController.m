@@ -105,7 +105,7 @@
     countDwonLabel.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:countDwonLabel];
     
-      
+    
     [self.view.layer addSublayer:l];
     [self.view.layer addSublayer:whiteLayer];
     [self.view bringSubviewToFront:countDwonLabel];

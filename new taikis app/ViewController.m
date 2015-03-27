@@ -28,19 +28,19 @@
     
     
     rundomViewInt = arc4random() % 2;//画像をランダムで表示させるためのもの
-
+    
     NSLog(@"%d",rundomViewInt);
     
     
     imgName = [NSString stringWithFormat:@"pico%d.png",rundomViewInt];
-
+    
     img = [UIImage imageNamed:imgName];
     mainview = [[UIImageView alloc] initWithImage:img];
     mainview.frame = CGRectMake(350,200, 200,  200);
     mainview.contentMode = UIViewContentModeScaleAspectFit;
     
     if (rundomViewInt == 0) {
-       name = @"とり";
+        name = @"とり";
         nameString = [@[@"とり", @"ひこうき", @"くも",@"ぬっきー"] mutableCopy];
         
     }
@@ -69,14 +69,14 @@
              action:@selector(hoge:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:home];
     home.alpha = 0;
-
+    
     /*  nameStringの中身をランダムに変更 　*/
     for (int i = 0; i < [nameString count];i ++) {
         int j =arc4random() % 4;
         [nameString exchangeObjectAtIndex:i withObjectAtIndex:j];
         
     }
-
+    
     /* 一つ目のボタン */
     CGRect btnRect =CGRectMake(80,self.view.frame.size.height/2+20, 215, 50);
     BButtonType btnType =BButtonTypeSuccess ;
@@ -90,7 +90,7 @@
     btn2 =[[BButton alloc]initWithFrame:btn2Rect type:btn2Type];
     [btn2 setTitle: [NSString stringWithFormat:@"%@",nameString[1]]  forState:UIControlStateNormal];
     [btn2 addTarget:self action:@selector(btn2:) forControlEvents:UIControlEventTouchUpInside];
-   
+    
     /* 三つ目もボタン */
     CGRect btn3Rect =CGRectMake(80,self.view.frame.size.height/2+140 , 215, 50);
     BButtonType btn3Type =BButtonTypeSuccess ;
@@ -105,7 +105,7 @@
     [btn4 setTitle: [NSString stringWithFormat:@"%@",nameString[3]]  forState:UIControlStateNormal];
     [btn4 addTarget:self action:@selector(btn4:) forControlEvents:UIControlEventTouchUpInside];
     
-   /*------------------------------- カウントダウン関係 --------------------------------------*/
+    /*------------------------------- カウントダウン関係 --------------------------------------*/
     l = [CAShapeLayer layer];
     whiteLayer = [CAShapeLayer layer];
     
@@ -150,35 +150,35 @@
         
         
         
-            [UIView animateWithDuration:0.8f
-                             animations:^{
-//                                 label.alpha = 0;
-            } completion:^(BOOL finished){
-                [self.view addSubview:mainview];
-                
-                
-                [UIView animateWithDuration:0.3f // アニメーション速度2.5秒
-                                      delay:0.0f // 1秒後にアニメーション
-                                    options:UIViewAnimationOptionCurveEaseIn
-                                 animations:^{
-                                     CGAffineTransform translate = CGAffineTransformMakeTranslation(-545, 0);
-                                     [mainview setTransform:translate];
-                                     // アニメーションをする処理
-                                 } completion:^(BOOL finished) {
-                                     // アニメーションが終わった後実行する処理
-                                     //もう一度のボタンを表示
-                                     
-                                     
-                                     [self.view addSubview:btn1];
-                                     [self.view addSubview:btn2];
-                                     [self.view addSubview:btn3];
-                                     [self.view addSubview:btn4];
-                                     
-                                   
-                                 }];
-
-            }];
-        }
+        [UIView animateWithDuration:0.8f
+                         animations:^{
+                             //                                 label.alpha = 0;
+                         } completion:^(BOOL finished){
+                             [self.view addSubview:mainview];
+                             
+                             
+                             [UIView animateWithDuration:0.3f // アニメーション速度2.5秒
+                                                   delay:0.0f // 1秒後にアニメーション
+                                                 options:UIViewAnimationOptionCurveEaseIn
+                                              animations:^{
+                                                  CGAffineTransform translate = CGAffineTransformMakeTranslation(-545, 0);
+                                                  [mainview setTransform:translate];
+                                                  // アニメーションをする処理
+                                              } completion:^(BOOL finished) {
+                                                  // アニメーションが終わった後実行する処理
+                                                  //もう一度のボタンを表示
+                                                  
+                                                  
+                                                  [self.view addSubview:btn1];
+                                                  [self.view addSubview:btn2];
+                                                  [self.view addSubview:btn3];
+                                                  [self.view addSubview:btn4];
+                                                  
+                                                  
+                                              }];
+                             
+                         }];
+    }
     
 }
 /*-------------------------------------ボタンの内容-----------------------------------------------*/
@@ -189,7 +189,7 @@
         mainview.frame = CGRectMake(self.view.frame.size.width/2 - 150,self.view.frame.size.height-600, 300,  300);
         mainview.contentMode = UIViewContentModeScaleAspectFit;
         mainview.alpha = 0;
-
+        
         [UIView animateWithDuration:3
                          animations:^{
                              mainview.alpha = 1.0;
@@ -198,7 +198,7 @@
                              
                          }completion:^(BOOL finished){
                              
-                         
+                             
                              
                          }];
         
@@ -219,7 +219,7 @@
         mainview.frame = CGRectMake(self.view.frame.size.width/2 - 150,self.view.frame.size.height-600, 300,  300);
         mainview.contentMode = UIViewContentModeScaleAspectFit;
         mainview.alpha = 0;
-
+        
         
         [btn1 removeFromSuperview];
         [btn2 removeFromSuperview];
@@ -238,7 +238,7 @@
                              
                              
                          }];
-
+        
         
     }else{
         NSLog(@"不正解");
@@ -250,7 +250,7 @@
         mainview.frame = CGRectMake(self.view.frame.size.width/2 - 150,self.view.frame.size.height-600, 300,  300);
         mainview.contentMode = UIViewContentModeScaleAspectFit;
         mainview.alpha = 0;
-
+        
         
         [btn1 removeFromSuperview];
         [btn2 removeFromSuperview];
@@ -269,7 +269,7 @@
                              
                              
                          }];
-
+        
     }else {
         NSLog(@"不正解");
     }
@@ -280,7 +280,7 @@
         mainview.frame = CGRectMake(self.view.frame.size.width/2 - 150,self.view.frame.size.height-600, 300,  300);
         mainview.contentMode = UIViewContentModeScaleAspectFit;
         mainview.alpha = 0;
- 
+        
         [btn1 removeFromSuperview];
         [btn2 removeFromSuperview];
         [btn3 removeFromSuperview];
@@ -296,9 +296,9 @@
                          }completion:^(BOOL finished){
                              
                              
-                        
+                             
                          }];
-
+        
     }else{
         NSLog(@"不正解");
     }
