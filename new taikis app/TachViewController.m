@@ -49,7 +49,7 @@
     button =[[UIButton alloc]initWithFrame:CGRectMake(self.view.frame.size.width/2-25,self.view.frame.size.height/2-25, 50, 50)];
     button.backgroundColor = [UIColor redColor];
     [button addTarget:self action:@selector(button) forControlEvents:UIControlEventTouchDown];
-    
+    [self.view addSubview:button];
     
     [self addLabel];
     
@@ -91,14 +91,13 @@
     countLabel.textAlignment = NSTextAlignmentCenter;
     countLabel.font = [UIFont boldSystemFontOfSize:50];
     [self.view addSubview:countLabel];
-    
-    
+
 }
 
 
 
 -(void)up {
-    [self.view addSubview:button];
+    
     button.alpha = 0;
     countLabel.alpha = 0;
     if (time < 1) {
@@ -106,7 +105,7 @@
         countLabel.alpha = 1;
         switch (num) {
             case 0:
-                labelY=labelY+10;
+                labelY=labelY+7;
                 
                 label.center = CGPointMake(labelX, labelY);
                 if (label.center.y >= 700) {
@@ -116,7 +115,7 @@
                 
                 break;
             case 1:
-                labelY = labelY-10;
+                labelY = labelY-7;
                 label.center = CGPointMake(labelX, labelY);
                 NSLog(@"%d",labelY);
                 if (label.center.y <= 0) {
@@ -126,7 +125,7 @@
                 
                 break;
             case 2:
-                labelX = labelX+8;
+                labelX = labelX+7;
                 label.center = CGPointMake(labelX, labelY);
                 if (label.center.x >= 360) {
                     [label removeFromSuperview];
@@ -134,7 +133,7 @@
                 }
                 break;
             case 3:
-                labelX = labelX-8;
+                labelX = labelX-7;
                 label.center = CGPointMake(labelX, labelY);
                 if (label.center.x <= 0) {
                     [label removeFromSuperview];
@@ -193,6 +192,9 @@
         countLabel.text =[NSString stringWithFormat:@"%d",count];
     }else {
         
+    }
+    if (count == 20) {
+        [self dismissViewControllerAnimated:YES completion:nil];
     }
 }
 
@@ -263,7 +265,7 @@
         [l removeFromSuperlayer];
         [countDwonLabel removeFromSuperview];
         [whiteLayer removeFromSuperlayer];
-        
+     
         
     }
     
@@ -272,8 +274,6 @@
 -(void)btn {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-
-
 
 
 

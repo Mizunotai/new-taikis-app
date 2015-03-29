@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B60C59531A9875F7006D7FBA /* ColorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B60C59521A9875F7006D7FBA /* ColorViewController.m */; };
+		B629C4A71AC7F60B0053F09A /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B629C4A61AC7F60B0053F09A /* MenuViewController.m */; };
 		B63024501ABFE8A300062701 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B630244F1ABFE8A300062701 /* Foundation.framework */; };
 		B63024521ABFE8BD00062701 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B63024511ABFE8BD00062701 /* CoreGraphics.framework */; };
 		B63024541ABFE8D400062701 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B63024531ABFE8D400062701 /* UIKit.framework */; };
@@ -41,6 +42,8 @@
 /* Begin PBXFileReference section */
 		B60C59511A9875F7006D7FBA /* ColorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorViewController.h; sourceTree = "<group>"; };
 		B60C59521A9875F7006D7FBA /* ColorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorViewController.m; sourceTree = "<group>"; };
+		B629C4A51AC7F60B0053F09A /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		B629C4A61AC7F60B0053F09A /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		B630244F1ABFE8A300062701 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B63024511ABFE8BD00062701 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		B63024531ABFE8D400062701 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -154,6 +157,8 @@
 				B60C59521A9875F7006D7FBA /* ColorViewController.m */,
 				B6CD92951AB4191200254291 /* TachViewController.h */,
 				B6CD92961AB4191200254291 /* TachViewController.m */,
+				B629C4A51AC7F60B0053F09A /* MenuViewController.h */,
+				B629C4A61AC7F60B0053F09A /* MenuViewController.m */,
 				B689EC431A611495000A6E11 /* Images.xcassets */,
 				B689EC451A611495000A6E11 /* LaunchScreen.xib */,
 				B689EC361A611495000A6E11 /* Supporting Files */,
@@ -300,6 +305,7 @@
 				B689EC391A611495000A6E11 /* main.m in Sources */,
 				B60C59531A9875F7006D7FBA /* ColorViewController.m in Sources */,
 				B6513B661A85B05B00D441A3 /* HomeViewController.m in Sources */,
+				B629C4A71AC7F60B0053F09A /* MenuViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
