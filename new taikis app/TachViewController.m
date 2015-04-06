@@ -105,7 +105,7 @@
         countLabel.alpha = 1;
         switch (num) {
             case 0:
-                labelY=labelY+7;
+                labelY=labelY+slider.value;
                 
                 label.center = CGPointMake(labelX, labelY);
                 if (label.center.y >= 700) {
@@ -115,9 +115,9 @@
                 
                 break;
             case 1:
-                labelY = labelY-7;
+                labelY = labelY - slider.value;
                 label.center = CGPointMake(labelX, labelY);
-                NSLog(@"%d",labelY);
+//                NSLog(@"%d",labelY);
                 if (label.center.y <= 0) {
                     [label removeFromSuperview];
                     [self addLabel];
@@ -125,7 +125,7 @@
                 
                 break;
             case 2:
-                labelX = labelX+7;
+                labelX = labelX + slider.value;
                 label.center = CGPointMake(labelX, labelY);
                 if (label.center.x >= 360) {
                     [label removeFromSuperview];
@@ -133,7 +133,7 @@
                 }
                 break;
             case 3:
-                labelX = labelX-7;
+                labelX = labelX-slider.value;
                 label.center = CGPointMake(labelX, labelY);
                 if (label.center.x <= 0) {
                     [label removeFromSuperview];
@@ -156,7 +156,6 @@
     
     num = arc4random() %4;
     
-    NSLog(@"%d",num);
     switch (num) {
         case 0:
             labelY = -50;

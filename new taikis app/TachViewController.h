@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "BButton.h"
+#import "MenuViewController.h"
 @interface TachViewController : UIViewController
 
 

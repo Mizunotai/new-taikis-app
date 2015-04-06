@@ -7,11 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "HomeViewController.h"
-#import "ViewController.h"
-#import "ColorViewController.h"
 #import "TachViewController.h"
 #import "BButton.h"
+UISlider *slider ;
 @interface MenuViewController : UIViewController
 
 @end

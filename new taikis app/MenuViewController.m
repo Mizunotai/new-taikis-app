@@ -7,10 +7,10 @@
 //
 
 #import "MenuViewController.h"
-
+   
 @interface MenuViewController (){
     UIButton *lebelButton[3];
-    UISlider *slider ;
+    
     UILabel *label;
 }
 
@@ -36,11 +36,12 @@
 //    
 //    [self.view addSubview:lebelButton[1]];
 //    
-//    CGRect btnRect3 = CGRectMake(self.view.bounds.size.width/2-50,self.view.bounds.size.height/2+100,100,50);
-//    BButtonType btnType3 = BButtonTypeDanger;
-//    lebelButton[2]=[[BButton alloc]initWithFrame:btnRect3 type:btnType3];
-//    
-//    [self.view addSubview:lebelButton[2]];
+    CGRect btnRect3 = CGRectMake(self.view.bounds.size.width/2-50,self.view.bounds.size.height/2+100,100,50);
+    BButtonType btnType3 = BButtonTypeDanger;
+    lebelButton[2]=[[BButton alloc]initWithFrame:btnRect3 type:btnType3];
+    [lebelButton[2] addTarget:self action:@selector(btn) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:lebelButton[2]];
+    
     slider =[[UISlider alloc]initWithFrame:
              CGRectMake(self.view.frame.size.width/2-150,self.view.frame.size.width/2-150,300, 300)];
     slider.minimumValue=5.0;
@@ -65,7 +66,14 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+-(void)btn{
+   
+    NSLog(@"kfdlgsgja");
+        UIViewController *viewController = [[TachViewController alloc]init];
+        viewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        [self presentViewController:viewController animated:YES completion:nil];
+    
+}
 /*
  #pragma mark - Navigation
  
