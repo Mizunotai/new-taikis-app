@@ -16,8 +16,9 @@
     UILabel *countDwonLabel;
     CAShapeLayer *l;
     CAShapeLayer *whiteLayer;
+    
+    
     UILabel *idouLabel;
- 
     UIButton *btn1;
     UIButton *btn2;
     UIButton *btn3;

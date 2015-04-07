@@ -71,11 +71,11 @@ COeJqQ
             </objects>
             <point key="canvasLocation" x="-244.53333333333333" y="215.36666666666667"/>
         </scene>
-        <!--Menu View Controller-->
+        <!--ColorsV Iew Controller-->
         <scene sceneID="mZz-id-Yps">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pzh-JC-8r9" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="wkJ-wF-6lh" customClass="MenuViewController" sceneMemberID="viewController">
+                <viewController id="wkJ-wF-6lh" customClass="ColorsVIewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Wzx-it-hCY">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

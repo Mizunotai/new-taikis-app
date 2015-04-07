@@ -100,7 +100,6 @@
     
     countDwonLabel =[[UILabel alloc]initWithFrame:
                      CGRectMake(self.view.bounds.size.width/2-50,self.view.bounds.size.height/2-50,100,100)];
-    //    countDwonLabel.backgroundColor = [UIColor redColor];
     countDwonLabel.font =[UIFont boldSystemFontOfSize:80];
     countDwonLabel.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:countDwonLabel];
@@ -109,6 +108,7 @@
     [self.view.layer addSublayer:l];
     [self.view.layer addSublayer:whiteLayer];
     [self.view bringSubviewToFront:countDwonLabel];
+   
     timer = [NSTimer scheduledTimerWithTimeInterval:0.01
                                              target:self
                                            selector:@selector(up)
@@ -317,10 +317,8 @@
         casLayer.fillColor = color.CGColor;
     }
     
-    //[self.view.layer addSublayer:l];
+
     
-    
-    //[self.view.layer insertSublayer:l atIndex:0];
     
 }
 
@@ -344,6 +342,8 @@
     UIColor* color = setColor;
     [self drawFunShapeWithCenter:center radius:radius startAngle:startAngle angle:angle color:color casLayer:casLayer];
 }
+
+
 
 /*
  #pragma mark - Navigation

@@ -20,6 +20,7 @@
 		B67ABF691A7B847C0099F19E /* UIColor+BButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B67ABF651A7B847C0099F19E /* UIColor+BButton.m */; };
 		B67F0B601A62C19100E84E76 /* pico0.png in Resources */ = {isa = PBXBuildFile; fileRef = B67F0B5F1A62C19100E84E76 /* pico0.png */; };
 		B67F0B621A62C19A00E84E76 /* pico1.png in Resources */ = {isa = PBXBuildFile; fileRef = B67F0B611A62C19A00E84E76 /* pico1.png */; };
+		B682F1A71AD3E68600051F7A /* ColorsVIewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B682F1A61AD3E68600051F7A /* ColorsVIewController.m */; };
 		B689EC391A611495000A6E11 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B689EC381A611495000A6E11 /* main.m */; };
 		B689EC3C1A611495000A6E11 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B689EC3B1A611495000A6E11 /* AppDelegate.m */; };
 		B689EC3F1A611495000A6E11 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B689EC3E1A611495000A6E11 /* ViewController.m */; };
@@ -59,6 +60,8 @@
 		B67ABF651A7B847C0099F19E /* UIColor+BButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+BButton.m"; sourceTree = "<group>"; };
 		B67F0B5F1A62C19100E84E76 /* pico0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pico0.png; path = "../../画像/オリジナル画像/pico0.png"; sourceTree = "<group>"; };
 		B67F0B611A62C19A00E84E76 /* pico1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pico1.png; path = "../../画像/オリジナル画像/pico1.png"; sourceTree = "<group>"; };
+		B682F1A51AD3E68600051F7A /* ColorsVIewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorsVIewController.h; sourceTree = "<group>"; };
+		B682F1A61AD3E68600051F7A /* ColorsVIewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorsVIewController.m; sourceTree = "<group>"; };
 		B689EC331A611495000A6E11 /* new taikis app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "new taikis app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B689EC371A611495000A6E11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B689EC381A611495000A6E11 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -153,8 +156,6 @@
 				B6513B651A85B05B00D441A3 /* Main.storyboard */,
 				B689EC3D1A611495000A6E11 /* ViewController.h */,
 				B689EC3E1A611495000A6E11 /* ViewController.m */,
-				B60C59511A9875F7006D7FBA /* ColorViewController.h */,
-				B60C59521A9875F7006D7FBA /* ColorViewController.m */,
 				B6CD92951AB4191200254291 /* TachViewController.h */,
 				B6CD92961AB4191200254291 /* TachViewController.m */,
 				B629C4A51AC7F60B0053F09A /* MenuViewController.h */,
@@ -169,6 +170,10 @@
 		B689EC361A611495000A6E11 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B60C59511A9875F7006D7FBA /* ColorViewController.h */,
+				B60C59521A9875F7006D7FBA /* ColorViewController.m */,
+				B682F1A51AD3E68600051F7A /* ColorsVIewController.h */,
+				B682F1A61AD3E68600051F7A /* ColorsVIewController.m */,
 				B689EC371A611495000A6E11 /* Info.plist */,
 				B689EC381A611495000A6E11 /* main.m */,
 			);
@@ -306,6 +311,7 @@
 				B60C59531A9875F7006D7FBA /* ColorViewController.m in Sources */,
 				B6513B661A85B05B00D441A3 /* HomeViewController.m in Sources */,
 				B629C4A71AC7F60B0053F09A /* MenuViewController.m in Sources */,
+				B682F1A71AD3E68600051F7A /* ColorsVIewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
