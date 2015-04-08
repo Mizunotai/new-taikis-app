@@ -24,6 +24,11 @@
     UILabel *countDwonLabel;
     CAShapeLayer *l;
     CAShapeLayer *whiteLayer;
+    int labelX ;
+    
+    
+    int question;
+    int count;
     
 }
 -(void)viewDidLoad{
@@ -72,27 +77,28 @@
     btn1 =[[BButton alloc]initWithFrame:btnRect type:btnType];
     [btn1 setTitle: [NSString stringWithFormat:@"%@",colorNamesArray[0]]  forState:UIControlStateNormal];
     [btn1 addTarget:self action:@selector(btn1) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btn1];
     /*　２つ目のボタン　*/
     CGRect btn2Rect =CGRectMake(80,self.view.frame.size.height/2+80 , 215, 50);
     BButtonType btn2Type =BButtonTypeSuccess ;
     btn2 =[[BButton alloc]initWithFrame:btn2Rect type:btn2Type];
     [btn2 setTitle: [NSString stringWithFormat:@"%@",colorNamesArray[1]]  forState:UIControlStateNormal];
     [btn2 addTarget:self action:@selector(btn2) forControlEvents:UIControlEventTouchUpInside];
-    
+    [self.view addSubview:btn2];
     /* 三つ目もボタン */
     CGRect btn3Rect =CGRectMake(80,self.view.frame.size.height/2+140 , 215, 50);
     BButtonType btn3Type =BButtonTypeSuccess ;
     btn3 =[[BButton alloc]initWithFrame:btn3Rect type:btn3Type];
     [btn3 setTitle: [NSString stringWithFormat:@"%@",colorNamesArray[2]]  forState:UIControlStateNormal];
     [btn3 addTarget:self action:@selector(btn3) forControlEvents:UIControlEventTouchUpInside];
-    
+    [self.view addSubview:btn3];
     /*　四つ目のボタン　*/
     CGRect btn4Rect =CGRectMake(80,self.view.frame.size.height/2+200 , 215, 50);
     BButtonType btn4Type =BButtonTypeSuccess ;
     btn4 =[[BButton alloc]initWithFrame:btn4Rect type:btn4Type];
     [btn4 setTitle: [NSString stringWithFormat:@"%@",colorNamesArray[3]]  forState:UIControlStateNormal];
     [btn4 addTarget:self action:@selector(btn4) forControlEvents:UIControlEventTouchUpInside];
-    
+    [self.view addSubview:btn4];
     l = [CAShapeLayer layer];
     whiteLayer = [CAShapeLayer layer];
     
@@ -124,33 +130,36 @@
                                              repeats:YES];
     
     drow = 0;
-    
+    [self addlabel];
+    question = 0 ;
+    count = 0;
     
 }
 -(void)up{
-    
-    
+    btn1.alpha = 0;
+    btn2.alpha = 0;
+    btn3.alpha = 0;
+    btn4.alpha = 0;
     if (time <=1) {
+        btn1.alpha = 1;
+        btn2.alpha = 1;
+        btn3.alpha = 1;
+        btn4.alpha = 1;
         
-        [self addlabel];
-    }
-}
--(void)up2{
-    time -=0.01;
-    drow ++ ;
-    [self drawPathGraph:drow*3.6:360-drow*3.6:[UIColor blackColor]:100:l];
-    countDwonLabel.text = [NSString stringWithFormat:@"%d",(int)time];
-    if (time<=1) {
-        [timer2 invalidate];
-        [l removeFromSuperlayer];
-        [whiteLayer removeFromSuperlayer];
-        [countDwonLabel removeFromSuperview];
+        labelX = labelX - 10;
+        idouLabel.center = CGPointMake(labelX, 200);
+        if (idouLabel.center.x <= 0) {
+            [idouLabel removeFromSuperview];
+            
+        }
+        
         
     }
-    
 }
+
 -(void)addlabel{
-    idouLabel =[[UILabel alloc]initWithFrame:CGRectMake(450,200, 100,  100)]; //移動するlabel
+    labelX = 450;
+    idouLabel =[[UILabel alloc]initWithFrame:CGRectMake(labelX,200, 100,  100)]; //移動するlabel
     num = arc4random()%4;
     switch (num) {
         case 0:
@@ -178,21 +187,129 @@
             colorNamesArray =[@[@"赤色",@"黄色",@"青色",@"緑色"]mutableCopy];
             break;
     }
-
+    [self.view addSubview:idouLabel];
+    question ++ ;
     
 }
-
+-(void)up2{
+    time -=0.01;
+    drow ++ ;
+    [self drawPathGraph:drow*3.6:360-drow*3.6:[UIColor blackColor]:100:l];
+    countDwonLabel.text = [NSString stringWithFormat:@"%d",(int)time];
+    if (time<=1) {
+        [timer2 invalidate];
+        [l removeFromSuperlayer];
+        [whiteLayer removeFromSuperlayer];
+        [countDwonLabel removeFromSuperview];
+        
+    }
+    
+}
 -(void)btn1{
+    if (colorName == colorNamesArray[0]) {
+        
+        
+    }else{
+        
+    }
+    
+    if (colorName == colorNamesArray[1]){
+        
+    }else{
+        
+    }
+    
+    if(colorName == colorNamesArray[2]){
+        
+    }else{
+        
+    }
+    
+    if(colorName == colorNamesArray[3]){
+        
+    }else{
+        
+    }
+    [self addlabel];
     
 }
 -(void)btn2{
+    if (colorName == colorNamesArray[0]) {
+        
+    }else{
+        
+    }
     
+    if (colorName == colorNamesArray[1]){
+        
+    }else{
+        
+    }
+    
+    if(colorName == colorNamesArray[2]){
+        
+    }else{
+        
+    }
+    
+    if(colorName == colorNamesArray[3]){
+        
+    }else{
+        
+    }
+    [self addlabel];
 }
 -(void)btn3{
+    if (colorName == colorNamesArray[0]) {
+        
+    }else{
+        
+    }
     
+    if (colorName == colorNamesArray[1]){
+        
+    }else{
+        
+    }
+    
+    if(colorName == colorNamesArray[2]){
+        
+    }else{
+        
+    }
+    
+    if(colorName == colorNamesArray[3]){
+        
+    }else{
+        
+    }
+    [self addlabel];
 }
 -(void)btn4{
+    if (colorName == colorNamesArray[0]) {
+        
+    }else{
+        
+    }
     
+    if (colorName == colorNamesArray[1]){
+        
+    }else{
+        
+    }
+    
+    if(colorName == colorNamesArray[2]){
+        
+    }else{
+        
+    }
+    
+    if(colorName == colorNamesArray[3]){
+        
+    }else{
+        
+    }
+    [self addlabel];
 }
 - (void) drawFunShapeWithCenter:(CGPoint)center
                          radius:(CGFloat)radius
