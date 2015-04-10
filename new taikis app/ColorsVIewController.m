@@ -189,6 +189,10 @@
     }
     [self.view addSubview:idouLabel];
     question ++ ;
+    NSLog(@"%d:クイズの数,%d:正解数",question,count);
+    if (question == 10) {
+        self.view.backgroundColor = [UIColor blackColor];
+    }
     
 }
 -(void)up2{
@@ -208,104 +212,37 @@
 -(void)btn1{
     if (colorName == colorNamesArray[0]) {
         
-        
+        count++;
     }else{
         
     }
     
-    if (colorName == colorNamesArray[1]){
-        
-    }else{
-        
-    }
-    
-    if(colorName == colorNamesArray[2]){
-        
-    }else{
-        
-    }
-    
-    if(colorName == colorNamesArray[3]){
-        
-    }else{
-        
-    }
-    [self addlabel];
+        [self addlabel];
     
 }
 -(void)btn2{
-    if (colorName == colorNamesArray[0]) {
-        
-    }else{
-        
-    }
     
     if (colorName == colorNamesArray[1]){
-        
+        count++;
     }else{
         
     }
     
-    if(colorName == colorNamesArray[2]){
-        
-    }else{
-        
-    }
-    
-    if(colorName == colorNamesArray[3]){
-        
-    }else{
-        
-    }
-    [self addlabel];
+        [self addlabel];
 }
 -(void)btn3{
-    if (colorName == colorNamesArray[0]) {
-        
-    }else{
-        
-    }
-    
-    if (colorName == colorNamesArray[1]){
-        
-    }else{
-        
-    }
     
     if(colorName == colorNamesArray[2]){
-        
+        count++;
     }else{
         
     }
     
-    if(colorName == colorNamesArray[3]){
-        
-    }else{
-        
-    }
-    [self addlabel];
+        [self addlabel];
 }
 -(void)btn4{
-    if (colorName == colorNamesArray[0]) {
-        
-    }else{
-        
-    }
-    
-    if (colorName == colorNamesArray[1]){
-        
-    }else{
-        
-    }
-    
-    if(colorName == colorNamesArray[2]){
-        
-    }else{
-        
-    }
-    
     if(colorName == colorNamesArray[3]){
-        
+        count++;
     }else{
         
     }
